@@ -1,0 +1,42 @@
+.group-container{
+	width: 100%; position:relative; display:block;
+}
+.box-group{
+	margin: 10px auto;
+	position: relative;
+	display: block;
+}
+.box-label{
+	width: 40%; position:relative;display:block;float:left;margin: 0 auto;
+}
+.box-field{
+	width: 60%; position:relative;display:block;float:left;margin: 0 auto;
+}
+.map-preview{
+	margin: 10px auto;
+	width: 100%;
+	float: left;
+	position: relative;
+	display:blokc;
+}
+.map-preview > p {
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: center;
+}
+#pano,
+#map{
+	width:80%;height:400px;Margin:0 auto;
+}
+
+.cf:before,
+.cf:after {
+	content:"";
+	display:table;
+}
+.cf:after {
+	clear:both;
+}
+.cf {
+	zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}

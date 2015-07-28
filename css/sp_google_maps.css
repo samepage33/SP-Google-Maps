@@ -1,0 +1,24 @@
+.sp_maps_container{
+	position:relative;display:block;margin:0 auto;padding: 0;float:left;
+	width: 100%;
+}
+.google-maps-steetview,
+.google-maps-basic{
+	position: relative;display:block;float:left;
+	margin: 10px 0; padding: 0;
+	width: 50%;
+	height:300px;
+}
+
+.google-maps-route-calc{
+	position: relative;display:block;float:left;
+	margin: 10px 0; padding: 0;
+	width: 100%;
+	
+}
+.sp_maps_container:after,.sp_maps_container:before,
+.cf:before,.cf:after {content:"";display:table;}
+.sp_maps_container:after,
+.cf:after {clear:both;}
+.sp_maps_container,
+.cf {zoom:1;}
