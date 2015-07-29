@@ -11,6 +11,7 @@ Author: Kudratullah
 Author URI: http://samepagenet.com/
 License: GPLv2 or later
 Text Domain: sp_google_maps
+Domain Path: /languages/
 */
 
 // Make sure we don't expose any info if called directly
@@ -19,16 +20,22 @@ if ( !function_exists( 'add_action' ) ) {
 	exit;
 }
 
+
+add_action('plugins_loaded', 'i18n');
+function i18n() {
+	load_plugin_textdomain( 'sp_google_maps', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');        
+}
+
 //Add Extra Links To Plugin Meta
 
 add_filter('plugin_row_meta',  'Register_Plugins_Links', 10, 2);
 function Register_Plugins_Links($links, $file) {
 	$base = plugin_basename(__FILE__);
 	if ($file == $base) {
-		$links[] = '<a href="' . admin_url( '/edit.php?post_type=sp_google_maps' ) . '">' . __('View Maps') . '</a>';
-		$links[] = '<a href="http://samepagenet.com/contact-us" target="_blank">' . __('Support') . '</a>';
-		$links[] = '<a href="https://www.facebook.com/samepageltd" target="_blank">' . __('Facebook') . '</a>';
-		$links[] = '<a href="https://plus.google.com/100137269262808815094/" target="_blank">' . __('Google Plus') . '</a>';
+		$links[] = '<a href="' . admin_url( '/edit.php?post_type=sp_google_maps' ) . '">' . __('View Maps', 'sp_google_maps') . '</a>';
+		$links[] = '<a href="http://samepagenet.com/contact-us" target="_blank">' . __('Support', 'sp_google_maps') . '</a>';
+		$links[] = '<a href="https://www.facebook.com/samepageltd" target="_blank">' . __('Facebook', 'sp_google_maps') . '</a>';
+		$links[] = '<a href="https://plus.google.com/100137269262808815094/" target="_blank">' . __('Google Plus', 'sp_google_maps') . '</a>';
 	}
 	return $links;
 }
@@ -36,8 +43,8 @@ function Register_Plugins_Links($links, $file) {
 function sp_google_maps() {
 
 	$labels = array(
-		'name'                => _x( 'Google Maps', 'Post Type General Name', 'sp_google_maps' ),
-		'singular_name'       => _x( 'Google Maps', 'Post Type Singular Name', 'sp_google_maps' ),
+		'name'                => _x( 'SP Google Maps', 'Post Type General Name', 'sp_google_maps' ),
+		'singular_name'       => _x( 'SP Google Maps', 'Post Type Singular Name', 'sp_google_maps' ),
 		'menu_name'           => __( 'SP Google Maps', 'sp_google_maps' ),
 		'name_admin_bar'      => __( 'SP Google Maps', 'sp_google_maps' ),
 		'parent_item_colon'   => __( 'Parent Item:', 'sp_google_maps' ),
@@ -58,7 +65,7 @@ function sp_google_maps() {
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'editor', ),
 		'hierarchical'        => false,
-		'public'              => true,
+		'public'              => false,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
 		'menu_position'       => 20,
@@ -87,17 +94,17 @@ function load_custom_wp_admin_style_script() {
 	global $post;
 	
 	$values = get_post_custom( $post->ID );
-	$maps_latlng = isset( $values['maps-latlng'] ) ? $values['maps-latlng'][0] : '23.727369,90.396604';
+	$maps_latlng = isset( $values['maps-latlng'] ) ? $values['maps-latlng'][0] : '35.68169,139.765396';
 	$maps_latlng = explode(",",$maps_latlng);
 	$lat = $maps_latlng[0];
 	$lng = $maps_latlng[1];
 	
-	$maps_pov = isset( $values['maps-pov'] ) ? $values['maps-pov'][0] : '-181.32468802438547,15.485711770927328';
+	$maps_pov = isset( $values['maps-pov'] ) ? $values['maps-pov'][0] : '104.40013753534012,17.25915572778863';
 	$maps_pov = explode(",",$maps_pov);
 	$heading = $maps_pov[0];
 	$pitch = $maps_pov[1];
 	
-	if (($_GET['post_type'] == 'sp_google_maps') || ($post_type == 'sp_google_maps')) :
+	if (($post_type == 'sp_google_maps')) :
 	
 		wp_register_style( 'Meta-Box', plugins_url('/css/admin.css', __FILE__), false, '1.0.0' );
 		
@@ -136,13 +143,17 @@ function sp_google_maps_shortcode_meta_box_add(){
 function sp_google_maps_shortcode_meta(){
 	global $post;
 ?>
-	<p><strong><label for="map_shortcode">ShortCode For This Map</label></strong></p>
+	<p>
+		<strong>
+			<label for="map_shortcode"><?php _e("ShortCode For This Map", 'sp_google_maps'); ?></label>
+		</strong>
+	</p>
 	<?php if(get_post_status( $post->ID ) === "publish"): ?>
 	<input type="text" id="map_shortcode" value='[SPGM id="<?php echo $post->ID; ?>"]' onclick="select();" />
 	<br>
-	<code>Copy and Paste This ShortCode To Use This Map</code>
+	<code><?php _e('Copy and Paste This ShortCode To Use This Map', 'sp_google_maps'); ?></code>
 	<?php else: ?>
-	<p><small>ShortCode will apear after first save;</small></p>
+	<p><small><?php _e('ShortCode will apear after first save.', 'sp_google_maps'); ?></small></p>
 	<?php endif; ?>
 <?php
 }
@@ -159,7 +170,7 @@ function sp_google_maps_settings(){
 	$maps_latlng = isset( $values['maps-latlng'] ) ? $values['maps-latlng'][0] : '';
 	$maps_pov = isset( $values['maps-pov'] ) ? $values['maps-pov'][0] : '';
 	$maps_style = isset( $values['maps-style'] ) ? $values['maps-style'][0] : '';
-	$maps_icon = isset( $values['maps_icon'] ) ? $values['maps_icon'][0] : plugin_dir_url( __FILE__ ).'map_marker_icon.png';
+	$maps_icon = isset( $values['maps-icon'] ) ? $values['maps-icon'][0] : plugin_dir_url( __FILE__ ).'map_marker_icon.png';
 	
 	
 	// We'll use this nonce field later on when saving.
@@ -169,51 +180,51 @@ function sp_google_maps_settings(){
 	<div class="group-container cf">
 		<div class="box-group">
 			<div class="box-label">
-				<label for="maps-latlng">Google Maps Latitude Longitude </label>
+				<label for="maps-latlng"><?php _e('Google Maps Latitude Longitude:', 'sp_google_maps'); ?></label>
 			</div>
 			<div class="box-field">
 				<input class="regular-text" type="text" name="maps-latlng" id="maps-latlng" value="<?php echo $maps_latlng; ?>" placeholder="23.727663,90.41054964" />
 				<div class="cf"></div>	
-				<code>Input Latitude &amp; Longitude Saperated By Comma. Or Choose Ur Location From from the map bellow. eg. lat,lan. Or Use the Google Maps Preview, drag the marker to your location to set the Latitude,Longitude</code>
+				<code><?php _e('Input Latitude &amp; Longitude Saperated By Comma. Or Choose Ur Location From from the map bellow. eg. lat,lan.', 'sp_google_maps'); ?></code>
 			</div>
 			<div class="cf"></div>
 			<div class="map-preview">
-				<p>Choose Your Location By Dragging The Marker</p>
+				<p><?php _e('Choose Your Location By Dragging The Marker', 'sp_google_maps'); ?></p>
 				<div id="map"></div>
 			</div>
 		</div>
 		<div class="cf"></div>
 		<div class="box-group">
 			<div class="box-label">
-				<label for="maps-pov">Point of View </label>
+				<label for="maps-pov"><?php _e('Street View Angle:', 'sp_google_maps'); ?></label>
 			</div>
 			<div class="box-field">
 				<input class="regular-text" type="text" name="maps-pov" id="maps-pov" value="<?php echo $maps_pov; ?>" placeholder="-133.26844,32.265165" />
 				<div class="cf"></div>
-				<code>Saperated By Comma. Set Heading &amp; Pitch, eg. heading,pitch. Or use the Street Map Preview to set Point-of-View;</code>
+				<code><?php _e('Saperated By Comma. Set Heading &amp; Pitch, eg. heading,pitch. Or use the Street Map Preview to set Point-of-View.', 'sp_google_maps'); ?></code>
 			</div>
 			<div class="cf"></div>
 			<div class="map-preview">
-				<p>Choose Your Desigre Angle</p>
+				<p><?php _e('Choose Your Desigre Angle', 'sp_google_maps'); ?></p>
 				<div id="pano"></div>
 			</div>
 		</div>
 		<div class="cf"></div>
 		<div class="box-group">
 			<div class="box-label">
-				<label for="maps-icon">Google Maps Marker Icon</label>
+				<label for="maps-icon"><?php _e('Google Maps Marker Icon', 'sp_google_maps'); ?></label>
 			</div>
 			<div class="box-field">
-				<input class="regular-text" type="text" name="maps-icon" id="maps-icon" value="<?php echo $maps_icon; ?>" placeholder="Marker Icon URL" />
-				<img src="<?php echo $maps_icon; ?>" alt="Google Maps Custom Marker Icon" style="position: absolute;width: 34px;margin: 0 0 0 20px;padding: 0;top: -5px;">
+				<input class="regular-text" type="text" name="maps-icon" id="maps-icon" value="<?php echo $maps_icon; ?>" placeholder="<?php _e('Marker Icon URL', 'sp_google_maps'); ?>" />
+				<img src="<?php echo $maps_icon; ?>" alt="<?php _e('Google Maps Custom Marker Icon', 'sp_google_maps'); ?>" style="position: absolute;width: 34px;margin: 0 0 0 20px;padding: 0;top: -5px;">
 				<div class="cf"></div>	
-				<code>Icon Url. Recommended 64x64PX PNG Image</code>
+				<code><?php _e('Icon Url. Recommended 64x64PX PNG Image', 'sp_google_maps'); ?></code>
 			</div>
 		</div>
 		<div class="cf"></div>
 		<div class="box-group">
 			<div class="box-label">
-				<label for="maps-style">Maps Style</label>
+				<label for="maps-style"><?php _e('Maps Style', 'sp_google_maps'); ?></label>
 			</div>
 			<div class="box-field">
 				<textarea class="regular-text" name="maps-style" id="maps-style" placeholder='[{
@@ -223,11 +234,7 @@ function sp_google_maps_settings(){
 }]
 }, {...' style="width: 100%;min-height: 150px;"><?php echo $maps_style; ?></textarea>
 				<div class="cf"></div>
-				<code>Google Maps Styled API.<br>
-					Get Settings For Colorful Google Maps From <a href="https://snazzymaps.com/">https://snazzymaps.com/</a><br>
-					Copy and paste the <em>JavaScript Style Array</em> Here.<br>
-					Or create a new style with  <a href="http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html">Google Maps API Styled Map Wizard</a> and copy-paste the Json data here.
-				</code>
+				<code><?php _e('Google Maps Styled API.<br>Get Settings For Colorful Google Maps From <a href="https://snazzymaps.com/">https://snazzymaps.com/</a><br>Copy and paste the <em>JavaScript Style Array</em> Here.<br>Or create a new style with  <a href="http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html">Google Maps API Styled Map Wizard</a> and copy-paste the Json data here.', 'sp_google_maps'); ?></code>
 			</div>
 		</div>
 		<div class="cf"></div>
@@ -254,11 +261,13 @@ function sp_google_maps_meta_box_save( $post_id ){
 	
 	if( isset( $_POST['maps-style'] ) )
 		update_post_meta( $post_id, 'maps-style', wp_kses( $_POST['maps-style'], $allowed ) );
+	
+	if( isset( $_POST['maps-icon'] ) )
+		update_post_meta( $post_id, 'maps-icon', wp_kses( $_POST['maps-icon'], $allowed ) );
 }
 
 
-// Adding Map 
-// Add Shortcode
+// Adding Map Shortcode
 function sp_google_maps_shortcode( $atts ) {
 	// Attributes
 	extract( shortcode_atts(
@@ -270,9 +279,10 @@ function sp_google_maps_shortcode( $atts ) {
 	$output = "";
 	
 	if(!$id || empty($id)){
-		return "Map Not Found";
+		return __("Map Not Found");
 	}else{
 		$map = get_post($id);
+		
 		$values = get_post_custom($id);
 		
 		$map_title = $map->post_title;
@@ -287,13 +297,11 @@ function sp_google_maps_shortcode( $atts ) {
 		$pov = explode(",",$maps_pov);
 		$heading = $pov[0];
 		$pitch = $pov[1];
-		$maps_icon = $values['maps_icon'][0];
+		$maps_icon = $values['maps-icon'][0];
 		$maps_style = empty( $values['maps-style'][0] ) ? '[{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]' : $values['maps-style'][0];
 		
 		//add script and style
 		wp_register_style( 'SP-Google-Maps-Style', plugins_url('/css/sp_google_maps.css', __FILE__), false, '1.0.0' );
-		//wp_register_style( 'Modal-CSS', plugins_url('/css/modal.css', __FILE__), false, '1.0.0' );
-		//wp_register_script( 'Modal-JS', plugins_url('/js/modal.js', __FILE__), 'jQuery', '1.0.0' );
 		
 		wp_register_script( 'Google-Maps', "https://maps.googleapis.com/maps/api/js?v=3.exp", false, null);
 		
@@ -317,47 +325,18 @@ function sp_google_maps_shortcode( $atts ) {
 		wp_enqueue_script('Google-Maps');
 		wp_enqueue_script('SP-Google-Maps-Script');
 		
-		/*$output .= '
-				<style type="text/css">
-				.sp_maps_container{
-					position:relative;display:block;margin:0 auto;padding: 0;float:left;
-					width: 100%;
-				}
-				.google-maps-steetview,
-				.google-maps-basic{
-					position: relative;display:block;float:left;
-					margin: 10px 0; padding: 0;
-					width: 50%;
-					height:350px;
-				}
-				
-				.google-maps-route-calc{
-					position: relative;display:block;float:left;
-					margin: 10px 0; padding: 0;
-					width: 100%;
-					
-				}
-				.sp_maps_container:after,.sp_maps_container:before,
-				.cf:before,.cf:after {content:"";display:table;}
-				.sp_maps_container:after,
-				.cf:after {clear:both;}
-				.sp_maps_container,
-				.cf {zoom:1;}
-				</style>
-				';*/
 		$output .= '<div class="sp_maps_container">';
 			$output .= '<div class="google-maps-basic" id="map_canvas_'.$id.'"></div>';
 			$output .= '<div class="google-maps-steetview" id="pano_'.$id.'"></div>';
-			$output .= <<<SCR
-<div class="cf"></div>
-<div class="google-maps-route-calc">
-	<a href="javascript:void(0);" onclick="calcRoute('DRIVING');return false;">Show Car Rout From Your Location</a><br>
-	<a href="javascript:void(0);" onclick="calcRoute('WALKING');return false;">Show Walking Route</a><br>
-	<a id="link" target="_blank" onclick="return getMyLocation();">Show Public Transport Route</a>
-</div>
-SCR;
+			$output .= '<div class="cf"></div>';
+			$output .= '<div class="google-maps-route-calc">';
+				$output .= '<a href="javascript:void(0);" onclick="calcRoute(\'DRIVING\');return false;">'. __('Show Car Rout From Your Location', 'sp_google_maps') .'</a><br>';
+				$output .= '<a href="javascript:void(0);" onclick="calcRoute(\'WALKING\');return false;">'. __('Show Walking Route', 'sp_google_maps') .'</a><br>';
+				$output .= '<a id="link" target="_blank" onclick="return getMyLocation();">'. __('Show Public Transport Route', 'sp_google_maps') .'</a>';
+			$output .= '</div>';
 		$output .= '</div>';
 		return $output;
 	}
 }
+
 add_shortcode( 'SPGM', 'sp_google_maps_shortcode' );
