@@ -8,33 +8,35 @@ var directionsService = new google.maps.DirectionsService();
 function initialize() {
 	// Create an array of styles.
 	var styles = JSON.parse(mapdata.style);
-	var latitude = Number(mapdata.lat);
-	var longitude = Number(mapdata.lng);
+		var latitude = Number(mapdata.lat);
+		var longitude = Number(mapdata.lng);
 
-	var routeLatLng = "https://www.google.com/maps?hl=en&ie=UTF8&f=d&dirflg=r&saddr=" + latitude + "," + longitude + "&daddr=Type Your Location";
-	
-	var a = document.getElementById('link');
-	a.href = routeLatLng;
-
-	var latlng = new google.maps.LatLng(latitude, longitude);
-	directionsDisplay = new google.maps.DirectionsRenderer();
-	var myOptions = {
+		var routeLatLng = "https://www.google.com/maps?hl=jp&ie=UTF8&f=d&dirflg=r&daddr=" + latitude + "," + longitude;
+		
+		var a = document.getElementById('link');
+		if(a){
+			a.href = routeLatLng;
+		}
+		
+		var latlng = new google.maps.LatLng(latitude, longitude);
+		directionsDisplay = new google.maps.DirectionsRenderer();
+		var myOptions = {
 		zoom: 14,
 		center: latlng,
 		styles: styles,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		mapTypeControl: false
-	};
-	var map = new google.maps.Map(document.getElementById("map_canvas_"+mapdata.mapid), myOptions);
-	directionsDisplay.setMap(map);
-	directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+		};
+		var map = new google.maps.Map(document.getElementById("map_canvas_"+mapdata.mapid), myOptions);
+		directionsDisplay.setMap(map);
+		directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 
-	var marker = new google.maps.Marker({
+		var marker = new google.maps.Marker({
 		position: new google.maps.LatLng(Number(mapdata.lat),Number(mapdata.lng)),
 		map: map,
 		icon: mapdata.icon,
 		title: mapdata.title
-	});
+		});
 	var infowindow = new google.maps.InfoWindow({
 		content: mapdata.description
 	});
@@ -109,3 +111,27 @@ var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano_
 //map.setStreetView(panorama);
 }
 google.maps.event.addDomListener(window, 'load', initialize2);
+
+//Added By Yasunori Kawakami
+function openPublicTransportMobile(){
+	var me = $('#link');
+	navigator.geolocation.getCurrentPosition(function(position) {
+		var href = me.attr('href');
+		var latitude = position.coords.latitude;
+		var longitude = position.coords.longitude;
+		href = href.replace('Type Your Location', latitude + ',' + longitude);
+		location.href=href;
+	});
+	return false;
+}
+function openPublicTransport(){
+	var me = $('#link');
+	navigator.geolocation.getCurrentPosition(function(position) {
+		var href = me.attr('href');
+		var latitude = position.coords.latitude;
+		var longitude = position.coords.longitude;
+		href = href.replace('Type Your Location', latitude + ',' + longitude);
+		me.attr('href', href);
+	});
+	return false;
+}

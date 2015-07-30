@@ -6,7 +6,7 @@
 .google-maps-basic{
 	position: relative;display:block;float:left;
 	margin: 10px 0; padding: 0;
-	width: 50%;
+	width: 100%;
 	height:300px;
 }
 
@@ -16,6 +16,17 @@
 	width: 100%;
 	
 }
+
+@media only screen and (min-width: 767px){
+	.google-maps-steetview,
+	.google-maps-basic{
+		position: relative;display:block;float:left;
+		margin: 10px 0; padding: 0;
+		width: 50% !important;
+		height:300px;
+	}
+}
+
 .sp_maps_container:after,.sp_maps_container:before,
 .cf:before,.cf:after {content:"";display:table;}
 .sp_maps_container:after,

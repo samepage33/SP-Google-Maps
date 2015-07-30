@@ -303,7 +303,7 @@ function sp_google_maps_shortcode( $atts ) {
 		//add script and style
 		wp_register_style( 'SP-Google-Maps-Style', plugins_url('/css/sp_google_maps.css', __FILE__), false, '1.0.0' );
 		
-		wp_register_script( 'Google-Maps', "https://maps.googleapis.com/maps/api/js?v=3.exp", false, null);
+		wp_register_script( 'Google-Maps', "//maps.googleapis.com/maps/api/js?v=3.exp", false, null);
 		
 		wp_register_script( 'SP-Google-Maps-Script', plugins_url('/js/sp_google_maps.js', __FILE__), 'Google-Maps', '1.0.0', true);
 		
@@ -330,9 +330,14 @@ function sp_google_maps_shortcode( $atts ) {
 			$output .= '<div class="google-maps-steetview" id="pano_'.$id.'"></div>';
 			$output .= '<div class="cf"></div>';
 			$output .= '<div class="google-maps-route-calc">';
+		if(sp_google_maps_isMobile()){
 				$output .= '<a href="javascript:void(0);" onclick="calcRoute(\'DRIVING\');return false;">'. __('Show Car Rout From Your Location', 'sp_google_maps') .'</a><br>';
 				$output .= '<a href="javascript:void(0);" onclick="calcRoute(\'WALKING\');return false;">'. __('Show Walking Route', 'sp_google_maps') .'</a><br>';
-				$output .= '<a id="link" target="_blank" onclick="return getMyLocation();">'. __('Show Public Transport Route', 'sp_google_maps') .'</a>';
+				$output .= '<a id="link" target="_blank" style="display:none;">'. __('Show Public Transport Route', 'sp_google_maps') .'</a>';
+				$output .= '<a target="_blank" href="javascript:void(0);" onclick="openPublicTransportMobile();return false;">'. __('Show Public Transport Route for Mobile', 'sp_google_maps') .'</a>';
+		} else {
+				$output .= '<a id="link" target="_blank">'. __('Show Public Transport Route', 'sp_google_maps') .'</a>';
+		}
 			$output .= '</div>';
 		$output .= '</div>';
 		return $output;
@@ -340,3 +345,11 @@ function sp_google_maps_shortcode( $atts ) {
 }
 
 add_shortcode( 'SPGM', 'sp_google_maps_shortcode' );
+//Added By Yasunori Kawakami
+function sp_google_maps_isMobile() {
+	$ua = $_SERVER['HTTP_USER_AGENT'];
+	if(preg_match("@(Android)|(iPhone)|(Windows Phone)|(iPad)@", $ua)){
+		return true;
+	}
+	return false;
+}
