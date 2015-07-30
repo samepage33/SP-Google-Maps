@@ -118,7 +118,7 @@ msgstr ""
 
 #: sp_google_maps.php:186
 msgid ""
-"Input Latitude &amp; Longitude Saperated By Comma. Or Choose Ur Location From "
+"Input Latitude &amp; Longitude Saperated By Comma. Or Choose Your Location From "
 "from the map bellow. eg. lat,lan."
 msgstr ""
 

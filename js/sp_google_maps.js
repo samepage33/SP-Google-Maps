@@ -7,34 +7,34 @@ var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 function initialize() {
 	// Create an array of styles.
-	var styles = mapdata.style;
-		var latitude = Number(mapdata.lat);
-		var longitude = Number(mapdata.lng);
+	var styles = JSON.parse(mapdata.style);
+	var latitude = Number(mapdata.lat);
+	var longitude = Number(mapdata.lng);
 
-		var routeLatLng = "https://www.google.com/maps?hl=en&ie=UTF8&f=d&dirflg=r&saddr=" + latitude + "," + longitude + "&daddr=Type Your Location";
-		
-		var a = document.getElementById('link');
-		a.href = routeLatLng;
+	var routeLatLng = "https://www.google.com/maps?hl=en&ie=UTF8&f=d&dirflg=r&saddr=" + latitude + "," + longitude + "&daddr=Type Your Location";
+	
+	var a = document.getElementById('link');
+	a.href = routeLatLng;
 
-		var latlng = new google.maps.LatLng(latitude, longitude);
-		directionsDisplay = new google.maps.DirectionsRenderer();
-		var myOptions = {
+	var latlng = new google.maps.LatLng(latitude, longitude);
+	directionsDisplay = new google.maps.DirectionsRenderer();
+	var myOptions = {
 		zoom: 14,
 		center: latlng,
 		styles: styles,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		mapTypeControl: false
-		};
-		var map = new google.maps.Map(document.getElementById("map_canvas_"+mapdata.mapid), myOptions);
-		directionsDisplay.setMap(map);
-		directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+	};
+	var map = new google.maps.Map(document.getElementById("map_canvas_"+mapdata.mapid), myOptions);
+	directionsDisplay.setMap(map);
+	directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 
-		var marker = new google.maps.Marker({
+	var marker = new google.maps.Marker({
 		position: new google.maps.LatLng(Number(mapdata.lat),Number(mapdata.lng)),
 		map: map,
 		icon: mapdata.icon,
 		title: mapdata.title
-		});
+	});
 	var infowindow = new google.maps.InfoWindow({
 		content: mapdata.description
 	});

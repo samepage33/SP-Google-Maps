@@ -185,7 +185,7 @@ function sp_google_maps_settings(){
 			<div class="box-field">
 				<input class="regular-text" type="text" name="maps-latlng" id="maps-latlng" value="<?php echo $maps_latlng; ?>" placeholder="23.727663,90.41054964" />
 				<div class="cf"></div>	
-				<code><?php _e('Input Latitude &amp; Longitude Saperated By Comma. Or Choose Ur Location From from the map bellow. eg. lat,lan.', 'sp_google_maps'); ?></code>
+				<code><?php _e('Input Latitude &amp; Longitude Saperated By Comma. Or Choose Your Location From from the map bellow. eg. lat,lan.', 'sp_google_maps'); ?></code>
 			</div>
 			<div class="cf"></div>
 			<div class="map-preview">
@@ -298,8 +298,8 @@ function sp_google_maps_shortcode( $atts ) {
 		$heading = $pov[0];
 		$pitch = $pov[1];
 		$maps_icon = $values['maps-icon'][0];
-		$maps_style = empty( $values['maps-style'][0] ) ? '[{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]' : $values['maps-style'][0];
-		
+		$maps_style = (empty( $values['maps-style'][0] )) ? '[{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]' : $values['maps-style'][0];
+
 		//add script and style
 		wp_register_style( 'SP-Google-Maps-Style', plugins_url('/css/sp_google_maps.css', __FILE__), false, '1.0.0' );
 		

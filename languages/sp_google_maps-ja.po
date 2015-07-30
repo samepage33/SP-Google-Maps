@@ -121,7 +121,7 @@ msgstr "緯度、経度"
 
 #: sp_google_maps.php:186
 msgid ""
-"Input Latitude &amp; Longitude Saperated By Comma. Or Choose Ur Location From "
+"Input Latitude &amp; Longitude Saperated By Comma. Or Choose Your Location From "
 "from the map bellow. eg. lat,lan."
 msgstr ""
 "緯度経度をコンマ区切りで入力するか、マップのマーカーを動かして選択下さい。"
