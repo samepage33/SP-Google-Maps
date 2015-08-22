@@ -4,98 +4,98 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SP Google Maps 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/sp_google_maps\n"
-"POT-Creation-Date: 2015-07-29 15:32+0900\n"
+"POT-Creation-Date: 2015-08-22 15:13+0600\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-07-29 13:50+0600\n"
-"X-Generator: Poedit 1.8.3\n"
+"PO-Revision-Date: 2015-08-22 16:18+0600\n"
 "Language-Team: SamePage <md@samepagenet.com>\n"
-"Last-Translator: \n"
+"X-Generator: Poedit 1.8.4\n"
+"Last-Translator: mhamudul_hk\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Language: ja\n"
 
-#: sp_google_maps.php:33
+#: sp_google_maps.php:35
 msgid "View Maps"
 msgstr "地図を見る"
 
-#: sp_google_maps.php:34
+#: sp_google_maps.php:36
 msgid "Support"
 msgstr "サポート"
 
-#: sp_google_maps.php:35
+#: sp_google_maps.php:37
 msgid "Facebook"
-msgstr "Facebook"
+msgstr ""
 
-#: sp_google_maps.php:36
+#: sp_google_maps.php:38
 msgid "Google Plus"
 msgstr ""
 
-#: sp_google_maps.php:44
+#: sp_google_maps.php:46
 msgctxt "Post Type General Name"
 msgid "SP Google Maps"
 msgstr ""
 
-#: sp_google_maps.php:45
+#: sp_google_maps.php:47
 msgctxt "Post Type Singular Name"
 msgid "SP Google Maps"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: sp_google_maps.php:46 sp_google_maps.php:47
+#: sp_google_maps.php:48 sp_google_maps.php:49
 msgid "SP Google Maps"
 msgstr ""
 
-#: sp_google_maps.php:48
+#: sp_google_maps.php:50
 msgid "Parent Item:"
-msgstr ""
+msgstr "親アイテム："
 
-#: sp_google_maps.php:49
+#: sp_google_maps.php:51
 msgid "All Maps"
 msgstr "すべてのマップ"
 
-#: sp_google_maps.php:50
+#: sp_google_maps.php:52
 msgid "Add New Map"
 msgstr "新規追加"
 
-#: sp_google_maps.php:51
+#: sp_google_maps.php:53
 msgid "Add New"
 msgstr "新規追加"
 
-#: sp_google_maps.php:52
+#: sp_google_maps.php:54
 msgid "New Map"
 msgstr "新規追加"
 
-#: sp_google_maps.php:53
+#: sp_google_maps.php:55
 msgid "Edit Map"
 msgstr "マップを修正"
 
-#: sp_google_maps.php:54
+#: sp_google_maps.php:56
 msgid "Update Map"
 msgstr "更新"
 
-#: sp_google_maps.php:55
+#: sp_google_maps.php:57
 msgid "View Map"
 msgstr "地図を見る"
 
-#: sp_google_maps.php:56
+#: sp_google_maps.php:58
 msgid "Search Map"
 msgstr "マップを探す"
 
-#: sp_google_maps.php:57
+#: sp_google_maps.php:59
 msgid "Not found"
 msgstr "何も見つかりませんでした。"
 
-#: sp_google_maps.php:58
+#: sp_google_maps.php:60
 msgid "Not found in Trash"
 msgstr "何も見つかりませんでした。"
 
-#: sp_google_maps.php:61
+#: sp_google_maps.php:63
 msgid "sp_google_maps"
-msgstr "sp_google_maps"
+msgstr ""
 
 #. Description of the plugin/theme
-#: sp_google_maps.php:62
+#: sp_google_maps.php:64
 msgid ""
 "A simple plugin that embed Google Maps and Google Maps Street View. With Geo "
 "Routeing Functionality."
@@ -103,69 +103,69 @@ msgstr ""
 "このプラグインはストリートビュー、google mapにルート機能を付けたものになりま"
 "す。GEO ルート機能を使ってます。"
 
-#: sp_google_maps.php:146
+#: sp_google_maps.php:147
 msgid "ShortCode For This Map"
 msgstr "ショートコード"
 
-#: sp_google_maps.php:152
+#: sp_google_maps.php:153
 msgid "Copy and Paste This ShortCode To Use This Map"
 msgstr "ショートコードをコピー＆ペーストして下さい。"
 
-#: sp_google_maps.php:154
+#: sp_google_maps.php:155
 msgid "ShortCode will apear after first save."
 msgstr "ショートコードは、一度更新された後に発行されます。"
 
-#: sp_google_maps.php:181
+#: sp_google_maps.php:182
 msgid "Google Maps Latitude Longitude:"
 msgstr "緯度、経度"
 
-#: sp_google_maps.php:186
+#: sp_google_maps.php:187
 msgid ""
-"Input Latitude &amp; Longitude Saperated By Comma. Or Choose Your Location From "
-"from the map bellow. eg. lat,lan."
+"Input Latitude &amp; Longitude Saperated By Comma. Or Choose Your Location "
+"From from the map bellow. eg. lat,lan."
 msgstr ""
 "緯度経度をコンマ区切りで入力するか、マップのマーカーを動かして選択下さい。"
 
-#: sp_google_maps.php:190
+#: sp_google_maps.php:191
 msgid "Choose Your Location By Dragging The Marker"
 msgstr "マーカーを動かして位置を指定して下さい。"
 
-#: sp_google_maps.php:197
+#: sp_google_maps.php:198
 msgid "Street View Angle:"
 msgstr "ストリートビュー　プレビュー　角度を焼成して下さい。"
 
-#: sp_google_maps.php:202
+#: sp_google_maps.php:203
 msgid ""
 "Saperated By Comma. Set Heading &amp; Pitch, eg. heading,pitch. Or use the "
 "Street Map Preview to set Point-of-View."
 msgstr ""
 "プレビュー内でドラッグするか、コンマ区切りで、角度、ピッチを指定して下さい。"
 
-#: sp_google_maps.php:206
+#: sp_google_maps.php:207
 msgid "Choose Your Desigre Angle"
 msgstr "角度を指定して下さい。"
 
-#: sp_google_maps.php:213
+#: sp_google_maps.php:214
 msgid "Google Maps Marker Icon"
 msgstr "マーカーアイコンを指定下さい。"
 
-#: sp_google_maps.php:216
+#: sp_google_maps.php:217
 msgid "Marker Icon URL"
 msgstr "マーカーアイコンのURL"
 
-#: sp_google_maps.php:217
+#: sp_google_maps.php:218
 msgid "Google Maps Custom Marker Icon"
 msgstr "カスタムマーカーアイコン"
 
-#: sp_google_maps.php:219
+#: sp_google_maps.php:220
 msgid "Icon Url. Recommended 64x64PX PNG Image"
 msgstr "マーカーアイコンイメージは、64×64Pxをお勧めします。"
 
-#: sp_google_maps.php:225
+#: sp_google_maps.php:226
 msgid "Maps Style"
 msgstr "マップレイアウト"
 
-#: sp_google_maps.php:235
+#: sp_google_maps.php:236
 msgid ""
 "Google Maps Styled API.<br>Get Settings For Colorful Google Maps From <a href="
 "\"https://snazzymaps.com/\">https://snazzymaps.com/</a><br>Copy and paste the "
@@ -181,18 +181,82 @@ msgstr ""
 "html\">Google Maps API Styled Map Wizard</a> and copy-paste the Json data "
 "here."
 
-#: sp_google_maps.php:277
+#: sp_google_maps.php:281
 msgid "Map Not Found"
 msgstr "何も見つかりませんでした。"
 
+#: sp_google_maps.php:322
+msgid "Type Your Location"
+msgstr "マーカーを動かして位置を指定して下さい。"
+
+#: sp_google_maps.php:325
+msgid "Your Browser Doesn't Support Location Service."
+msgstr "お使いのブラウザはロケーションサービスをサポートしていません。"
+
+#: sp_google_maps.php:326
+msgid "Request Timeout. Please Reload Your Browser."
+msgstr "要求がタイムアウトしました。ブラウザをリロードしてください。"
+
 #: sp_google_maps.php:327
+msgid ""
+"Your Position is Unavailable.\n"
+"Please Activate Your GPS And Location Services And Reload The Page."
+msgstr ""
+"あなたの位置は使用できません。あなたのGPSと位置情報サービスを有効にしてページ"
+"を再読み込みしてください。"
+
+#: sp_google_maps.php:328
+msgid ""
+"Your Location Settings Is Blocked.\n"
+"Please Change Your Location Sharing Settings And Reload The Page."
+msgstr ""
+"あなたのGPS設定はブロックされます。あなたの場所の共有設定を変更したり、ページ"
+"を再読み込みしてください。"
+
+#: sp_google_maps.php:329
+msgid ""
+"An Unknown Error Occurred.\n"
+"Please Try Again After Sometime."
+msgstr "不明なエラーが発生しました。後程、再度お試しください。"
+
+#: sp_google_maps.php:331
+msgid "No route could be found between the origin and destination."
+msgstr "ルートは、出発地と目的地の間で見つかりませんでした。"
+
+#: sp_google_maps.php:333
+msgid "This webpage is not allowed to use the directions service."
+msgstr "このウェブページは方向サービスを使用することはできません。"
+
+#: sp_google_maps.php:334
+msgid ""
+"The webpage has gone over the requests limit in too short a period of time."
+msgstr "ウェブページは、時間制限を超えてしまいました"
+
+#: sp_google_maps.php:335
+msgid ""
+"At least one of the origin, destination, or waypoints could not be geocoded."
+msgstr "スマートフォンから位置情報が取得できませんでした。"
+
+#: sp_google_maps.php:336
+msgid "The DirectionsRequest provided was invalid."
+msgstr "道順リクエストが不正です。"
+
+#: sp_google_maps.php:337
+msgid "There was an unknown error in your request. Request status is:"
+msgstr "不明なエラーが発生しました。"
+
+#: sp_google_maps.php:353
 msgid "Show Car Rout From Your Location"
 msgstr "車でのルート表示"
 
-#: sp_google_maps.php:328
+#: sp_google_maps.php:354
 msgid "Show Walking Route"
 msgstr "徒歩でのルート表示"
 
-#: sp_google_maps.php:329
+#: sp_google_maps.php:355 sp_google_maps.php:358
 msgid "Show Public Transport Route"
 msgstr "公共交通機関でのルート表示。別ページが開きます。"
+
+#: sp_google_maps.php:356
+msgid "Show Public Transport Route for Mobile"
+msgstr "モバイルによる公共交通機関のルート表示"

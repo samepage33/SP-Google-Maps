@@ -93,18 +93,19 @@ function load_custom_wp_admin_style_script() {
 	global $post_type;
 	global $post;
 	
-	$values = get_post_custom( $post->ID );
-	$maps_latlng = isset( $values['maps-latlng'] ) ? $values['maps-latlng'][0] : '35.68169,139.765396';
-	$maps_latlng = explode(",",$maps_latlng);
-	$lat = $maps_latlng[0];
-	$lng = $maps_latlng[1];
-	
-	$maps_pov = isset( $values['maps-pov'] ) ? $values['maps-pov'][0] : '104.40013753534012,17.25915572778863';
-	$maps_pov = explode(",",$maps_pov);
-	$heading = $maps_pov[0];
-	$pitch = $maps_pov[1];
-	
 	if (($post_type == 'sp_google_maps')) :
+	
+		$values = get_post_custom( $post->ID );
+		$maps_latlng = isset( $values['maps-latlng'] ) ? $values['maps-latlng'][0] : '35.68169,139.765396';
+		$maps_latlng = explode(",",$maps_latlng);
+		$lat = $maps_latlng[0];
+		$lng = $maps_latlng[1];
+		
+		$maps_pov = isset( $values['maps-pov'] ) ? $values['maps-pov'][0] : '104.40013753534012,17.25915572778863';
+		$maps_pov = explode(",",$maps_pov);
+		$heading = $maps_pov[0];
+		$pitch = $maps_pov[1];
+	
 	
 		wp_register_style( 'Meta-Box', plugins_url('/css/admin.css', __FILE__), false, '1.0.0' );
 		
@@ -121,7 +122,6 @@ function load_custom_wp_admin_style_script() {
 				'pitch' => $pitch
 		);
 		wp_localize_script( 'Google-Maps', 'mapdata', $mapdata );
-		
 		
 		wp_enqueue_style( 'Meta-Box' );
 		wp_enqueue_script('jquery');
@@ -305,7 +305,7 @@ function sp_google_maps_shortcode( $atts ) {
 		
 		wp_register_script( 'Google-Maps', "//maps.googleapis.com/maps/api/js?v=3.exp", false, null);
 		
-		wp_register_script( 'SP-Google-Maps-Script', plugins_url('/js/sp_google_maps.js', __FILE__), 'Google-Maps', '1.0.0', true);
+		wp_register_script( 'SP-Google-Maps-Script', plugins_url('/js/sp_google_maps.js', __FILE__), array('Google-Maps','jquery'), '1.0.0', true);
 		
 		// Localize the script with new data
 		$mapdata = array(
@@ -317,11 +317,31 @@ function sp_google_maps_shortcode( $atts ) {
 				'title' => $map_title,
 				'description' => $map_description,
 				'heading' => $heading,
-				'pitch' => $pitch
+				'pitch' => $pitch,
+				'messages' => array(
+						/*General messages*/
+						'client_location_request' => __('Type Your Location', 'sp_google_maps'),
+						
+						/*geo location api response messages*/
+						'geo_not_supported' => __("Your Browser Doesn't Support Location Service.", 'sp_google_maps'),
+						'geo_timeout' => __("Request Timeout. Please Reload Your Browser.",'sp_google_maps'),
+						'geo_position_unavailable' => __("Your Position is Unavailable.\nPlease Activate Your GPS And Location Services And Reload The Page.",'sp_google_maps'),
+						'geo_permission_denied' => __("Your Location Settings Is Blocked.\nPlease Change Your Location Sharing Settings And Reload The Page.",'sp_google_maps'),
+						'geo_unknown_error' => __("An Unknown Error Occurred.\nPlease Try Again After Sometime.",'sp_google_maps'),
+						/*google maps api response messages*/
+						'g_zero_results' => __('No route could be found between the origin and destination.','sp_google_maps'),
+						
+						'g_request_denied' => __('This webpage is not allowed to use the directions service.','sp_google_maps'),
+						'g_over_query_limit' => __('The webpage has gone over the requests limit in too short a period of time.','sp_google_maps'),
+						'g_not_found' => __('At least one of the origin, destination, or waypoints could not be geocoded.','sp_google_maps'),
+						'g_invalid_request' => __('The DirectionsRequest provided was invalid.','sp_google_maps'),
+						'g_no_status_found' => __('There was an unknown error in your request. Request status is:','sp_google_maps'),
+				)
 		);
 		wp_localize_script( 'Google-Maps', 'mapdata', $mapdata );
 		
 		wp_enqueue_style( 'SP-Google-Maps-Style' );
+		wp_enqueue_script('jquery');
 		wp_enqueue_script('Google-Maps');
 		wp_enqueue_script('SP-Google-Maps-Script');
 		
