@@ -47,9 +47,9 @@ There are no FAQ yet. Please check the Description
 ![Publish The Map In A Page Or Post](/screenshot-2.png?raw=true "Publish The Map In A Page Or Post")
 ![Maps Preview](/screenshot-3.png?raw=true "Maps Preview")
 
-== Changelog ==
+## Changelog
 
-= 1.0 =
+# 1.0
 * Initial Release.
 = 1.1 =
 * Fixed jquery problem in javascript
@@ -58,8 +58,8 @@ There are no FAQ yet. Please check the Description
 * Added support for custom CSS
 * Bengali Translation Added
 
-== Upgrade Notice ==
+## Upgrade Notice
 
 = 1.1 =
-Fixed jQuery issue, added custom css support, optimized and minified javascript files. 
+* Fixed jQuery issue, added custom css support, optimized and minified javascript files. 
 
