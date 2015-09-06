@@ -48,6 +48,7 @@ There are no FAQ yet. Please check the Description
 ![Maps Preview](/screenshot-3.png?raw=true "Maps Preview")
 
 == Changelog ==
+
 = 1.0 =
 * Initial Release.
 = 1.1 =
@@ -58,6 +59,7 @@ There are no FAQ yet. Please check the Description
 * Bengali Translation Added
 
 == Upgrade Notice ==
+
 = 1.1 =
 Fixed jQuery issue, added custom css support, optimized and minified javascript files. 
 
