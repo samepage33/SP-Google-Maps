@@ -49,8 +49,10 @@ There are no FAQ yet. Please check the Description
 
 ## Changelog
 
-# 1.0
+= 1.0 =
+
 * Initial Release.
+
 = 1.1 =
 * Fixed jquery problem in javascript
 * Improved and optimized javascript
