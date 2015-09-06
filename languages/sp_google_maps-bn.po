@@ -1,0 +1,262 @@
+# Copyright (C) 2015 SP Google Maps
+# This file is distributed under the same license as the SP Google Maps package.
+msgid ""
+msgstr ""
+"Project-Id-Version: SP Google Maps 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/sp_google_maps\n"
+"POT-Creation-Date: 2015-09-06 11:01+0600\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-06 12:30+0600\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.4\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: bn\n"
+
+#: sp_google_maps.php:35
+msgid "View Maps"
+msgstr "মানচিত্র দেখুন"
+
+#: sp_google_maps.php:36
+msgid "Support"
+msgstr "সহায়তা"
+
+#: sp_google_maps.php:37
+msgid "Facebook"
+msgstr "ফেসবুক"
+
+#: sp_google_maps.php:38
+msgid "Google Plus"
+msgstr "গুগল প্লাস"
+
+#: sp_google_maps.php:46
+msgctxt "Post Type General Name"
+msgid "SP Google Maps"
+msgstr ""
+
+#: sp_google_maps.php:47
+msgctxt "Post Type Singular Name"
+msgid "SP Google Maps"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: sp_google_maps.php:48 sp_google_maps.php:49
+msgid "SP Google Maps"
+msgstr ""
+
+#: sp_google_maps.php:50
+msgid "Parent Item:"
+msgstr "মূল আইটেমটিঃ"
+
+#: sp_google_maps.php:51
+msgid "All Maps"
+msgstr "সকল  মানচিত্র"
+
+#: sp_google_maps.php:52
+msgid "Add New Map"
+msgstr "নতুন মানচিত্র তৈরি করুন"
+
+#: sp_google_maps.php:53
+msgid "Add New"
+msgstr "নতুন তৈরি করুন"
+
+#: sp_google_maps.php:54
+msgid "New Map"
+msgstr "নতুন মানচিত্র"
+
+#: sp_google_maps.php:55
+msgid "Edit Map"
+msgstr "মানচিত্রটি পরিবর্তন করুন"
+
+#: sp_google_maps.php:56
+msgid "Update Map"
+msgstr "মানচিত্র হালনাগাদ করুন"
+
+#: sp_google_maps.php:57
+msgid "View Map"
+msgstr "মানচিত্র দেখুন"
+
+#: sp_google_maps.php:58
+msgid "Search Map"
+msgstr "মানচিত্র অনুসন্ধান করুন"
+
+#: sp_google_maps.php:59
+msgid "Not found"
+msgstr "খুঁজে পাওয়া যাচ্ছে না"
+
+#: sp_google_maps.php:60
+msgid "Not found in Trash"
+msgstr "ট্র্যাশ মধ্যে পাওয়া যায়নি"
+
+#: sp_google_maps.php:63
+msgid "sp_google_maps"
+msgstr ""
+
+#. Description of the plugin/theme
+#: sp_google_maps.php:64
+msgid "A simple plugin that embed Google Maps and Google Maps Street View. With Geo Routing Functionality."
+msgstr "এই প্লাগইনটি Geo Routing কার্যকারিতা সহ গুগল ম্যাপ ও গুগল স্ট্রিট ভিউ embed করতে পারে।"
+
+#: sp_google_maps.php:147
+msgid "ShortCode For This Map"
+msgstr "মানচিত্র এর শর্টকোড"
+
+#: sp_google_maps.php:153
+msgid "Copy and Paste This ShortCode To Use This Map"
+msgstr "এই মানচিত্র টি ব্যবহারের জন্যে শর্টকোডটি কপি করে পেস্ট করুন।"
+
+#: sp_google_maps.php:155
+msgid "ShortCode will apear after first save."
+msgstr "প্রথমবার সেভ করার পর শর্টকোড দেখা যাবে।"
+
+#: sp_google_maps.php:182
+msgid "Google Maps Latitude Longitude:"
+msgstr "গুগল মানচিত্র এর অক্ষাংশ ও দ্রাঘিমাংশঃ "
+
+#: sp_google_maps.php:187
+msgid ""
+"Input Latitude &amp; Longitude Saperated By Comma. Or Choose Your Location From from the map bellow. eg. lat,"
+"lan."
+msgstr " অক্ষাংশ ও দ্রাঘিমাংশ কমা দ্বারা বিভক্ত করে ইনপুট ফিল্ডে লিখুন, যেমনঃ  অক্ষাংশ ,দ্রাঘিমাংশ"
+
+#: sp_google_maps.php:191
+msgid "Choose Your Location By Dragging The Marker"
+msgstr "মানচিত্রের মার্কার আইকনটি টেনে আপনার স্থানটি চিহ্নিত করুন।"
+
+#: sp_google_maps.php:198
+msgid "Street View Angle:"
+msgstr "স্ট্রিট ভিউ অ্যাঙ্গেলঃ"
+
+#: sp_google_maps.php:203
+msgid ""
+"Saperated By Comma. Set Heading &amp; Pitch, eg. heading,pitch. Or use the Street Map Preview to set Point-of-"
+"View."
+msgstr ""
+"কমা দ্বারা বিভক্ত করে স্ট্রিট ভিউ এর অ্যাঙ্গেলের Heading এবং Pitch লিখুন, অথবা অ্যাঙ্গেল স্ট্রিট ভিউ মানচিত্র থেকে সেট "
+"করুন। যেমনঃ heading,pitch"
+
+#: sp_google_maps.php:207
+msgid "Choose Your Desigre Angle"
+msgstr "আপনার সুবিধা জনক অ্যাঙ্গেল নির্বাচন করুন"
+
+#: sp_google_maps.php:214
+msgid "Google Maps Marker Icon"
+msgstr "গুগল মানচিত্র মার্কারের আইকন"
+
+#: sp_google_maps.php:217
+msgid "Marker Icon URL"
+msgstr "মার্কার আইকন এর URL"
+
+#: sp_google_maps.php:218
+msgid "Google Maps Custom Marker Icon"
+msgstr "গুগল মানচিত্র মার্কারের জন্যে পরিবর্তিত আইকন"
+
+#: sp_google_maps.php:220
+msgid "Icon Url. Recommended 64x64PX PNG Image"
+msgstr "আইকন URL, ৬৪x৬৪ পিক্সেল আকারের .png আইকন হলে ভাল হয়।"
+
+#: sp_google_maps.php:226
+msgid "Maps Style"
+msgstr "মানচিত্রের স্টাইল"
+
+#: sp_google_maps.php:236
+msgid ""
+"Google Maps Styled API.<br>Get Settings For Colorful Google Maps From <a href=\"https://snazzymaps.com/"
+"\">https://snazzymaps.com/</a><br>Copy and paste the <em>JavaScript Style Array</em> Here.<br>Or create a new "
+"style with  <a href=\"http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google "
+"Maps API Styled Map Wizard</a> and copy-paste the Json data here."
+msgstr ""
+"গুগল মাপ্‌স এর স্টাইল API\n"
+"<a href=\"https://snazzymaps.com/\">https://snazzymaps.com/</a> থেকে স্টাইল এর সেটিং সংগ্রহ করুন,  আথবা <a href="
+"\"http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google Maps API Styled Map "
+"Wizard</a> থেকে আপনার ইচ্ছা মত তৈরি করুন এবং স্টাইল সেটিং এর JSON ডাটা এখানে কপি-পেস্ট করুন।"
+
+#: sp_google_maps.php:281
+msgid "Map Not Found"
+msgstr "মানচিত্র পাওয়া যায়নি"
+
+#: sp_google_maps.php:322
+msgid "Type Your Location"
+msgstr "আপনার অবস্থান লিখুন"
+
+#: sp_google_maps.php:325
+msgid "Your Browser Doesn't Support Location Service."
+msgstr "আপনার ব্রাউজার লোকেশন সার্ভিস সমর্থন করে না।"
+
+#: sp_google_maps.php:326
+msgid "Request Timeout. Please Reload Your Browser."
+msgstr "অনুরোধের সময়সীমা শেষ। ব্রাউজার রিলোড করুন।"
+
+#: sp_google_maps.php:327
+msgid ""
+"Your Position is Unavailable.\n"
+"Please Activate Your GPS And Location Services And Reload The Page."
+msgstr ""
+"আপনার অবস্থান পাওয়া যায়নি।\n"
+"আপনার জিপিএস ও অবস্থান পরিষেবা সক্রিয় করুন এবং পৃষ্ঠাটি পুনরায় লোড করুন।"
+
+#: sp_google_maps.php:328
+msgid ""
+"Your Location Settings Is Blocked.\n"
+"Please Change Your Location Sharing Settings And Reload The Page."
+msgstr ""
+"আপনার অবস্থান সেটিংস বন্ধ করা।\n"
+"আপনার অবস্থান শেয়ারিং সেটিংস পরিবর্তন করুন এবং পৃষ্ঠাটি পুনরায় লোড করুন।"
+
+#: sp_google_maps.php:329
+msgid ""
+"An Unknown Error Occurred.\n"
+"Please Try Again After Sometime."
+msgstr ""
+"একটি অজানা ত্রুটি ঘটেছে।\n"
+"কিছুক্ষণ পর আবার চেষ্টা করুন।"
+
+#: sp_google_maps.php:331
+msgid "No route could be found between the origin and destination."
+msgstr "শুরু এবং গন্তব্য এর মধ্যে কোন রাস্তা পাওয়া যায়নি।"
+
+#: sp_google_maps.php:333
+msgid "This webpage is not allowed to use the directions service."
+msgstr "এই ওয়েব পেজটির রাস্তা নির্দেশক পরিষেবা ব্যবহার করার অনুমতি নাই।"
+
+#: sp_google_maps.php:334
+msgid "The webpage has gone over the requests limit in too short a period of time."
+msgstr "এই ওয়েব পেজটির রিকুয়েস্ট লিমিত শেষ হয়ে গেছে।"
+
+#: sp_google_maps.php:335
+msgid "At least one of the origin, destination, or waypoints could not be geocoded."
+msgstr "উৎপত্তি, গন্তব্য, বা waypoints এর যেকোন একটির geocoded করা যায়নি।"
+
+#: sp_google_maps.php:336
+msgid "The Directions Request provided was invalid."
+msgstr "প্রদত্ত Directions Request অকার্যকার ছিল।"
+
+#: sp_google_maps.php:337
+msgid "There was an unknown error in your request. Request status is:"
+msgstr "আপনার অনুরোধে একটি অজানা ত্রুটি হয়েছে। অনুরোধ অবস্থা:"
+
+#: sp_google_maps.php:353
+msgid "Show Car Route From Your Location"
+msgstr "আপনার অবস্থান থেকে গাড়ির রাস্তা দেখুন"
+
+#: sp_google_maps.php:354
+msgid "Show Walking Route"
+msgstr "হাঁটা রাস্তা দেখুন"
+
+#: sp_google_maps.php:355 sp_google_maps.php:358
+msgid "Show Public Transport Route"
+msgstr "পাবলিক পরিবহনের রাস্তা দেখুন"
+
+#. Plugin URI of the plugin/theme
+msgid "http://samepagenet.com"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Kudratullah"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://samepagenet.com/"
+msgstr ""

@@ -3,11 +3,14 @@
 ## Description
 
 **SP Google Maps** is a lightweight plugin for creating google maps with street view for your WordPress Site. You can create unlimited map with this plugin. and the user can also calculate the route to your place from your website based on `Google Maps` and `HTML5's Geo-Location API`
-**[Download Link](http://samepagenet.com/dev/sp_google_maps.zip)**
+
+**[Download From WordPress.org](https://wordpress.org/plugins/sp-google-maps/)**
+
 **This is a easy to use plugin includes:**
 
 *   Create <u>Unlimited</u> Maps
 *   Native ShortCode Support
+*   Custom CSS
 *   Google Maps Preview in New Maps Page For Pick The Marker Location From The Map
 *   Also Have Google Street View With `Point of View` Calculation Function.
 *   Google Maps Style API Supported.
@@ -19,7 +22,6 @@
 *   Uses Google Maps JavaScript (Experimental) API V3
 *   This Version Doesn't Have Support For API Key. Which is actually not Required For Google Maps JavaScript API V3 ([Source](https://developers.google.com/maps/signup)). This Feature Will Be Available In Next Update.
 *   Can't Use Multiple Maps in Same Page or Post. This will be fixed in next update.
-*   No support for custom css. This will be available in next update
 
 **Contribute To This Plugin**
 
@@ -41,8 +43,21 @@ There are no FAQ yet. Please check the Description
 
 ## Screenshots
 
-1\. Create And Publish A New Map 2\. Publish The Map In A Page Or Post 3\. Maps Preview
+![Create And Publish A New Map](/screenshot-1.png?raw=true "Create And Publish A New Map")
+![Publish The Map In A Page Or Post](/screenshot-2.png?raw=true "Publish The Map In A Page Or Post")
+![Maps Preview](/screenshot-3.png?raw=true "Maps Preview")
 
-## Changelog
+== Changelog ==
+= 1.0 =
+* Initial Release.
+= 1.1 =
+* Fixed jquery problem in javascript
+* Improved and optimized javascript
+* Minified javascript added
+* Added support for custom CSS
+* Bengali Translation Added
 
-= 1.0 = Initial Release.
+== Upgrade Notice ==
+= 1.1 =
+Fixed jQuery issue, added custom css support, optimized and minified javascript files. 
+

@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-08-22 16:18+0600\n"
+"PO-Revision-Date: 2015-09-06 12:17+0600\n"
 "Language-Team: SamePage <md@samepagenet.com>\n"
 "X-Generator: Poedit 1.8.4\n"
 "Last-Translator: mhamudul_hk\n"
@@ -98,7 +98,7 @@ msgstr ""
 #: sp_google_maps.php:64
 msgid ""
 "A simple plugin that embed Google Maps and Google Maps Street View. With Geo "
-"Routeing Functionality."
+"Routing Functionality."
 msgstr ""
 "このプラグインはストリートビュー、google mapにルート機能を付けたものになりま"
 "す。GEO ルート機能を使ってます。"
@@ -238,7 +238,7 @@ msgid ""
 msgstr "スマートフォンから位置情報が取得できませんでした。"
 
 #: sp_google_maps.php:336
-msgid "The DirectionsRequest provided was invalid."
+msgid "The Directions Request provided was invalid."
 msgstr "道順リクエストが不正です。"
 
 #: sp_google_maps.php:337
@@ -246,7 +246,7 @@ msgid "There was an unknown error in your request. Request status is:"
 msgstr "不明なエラーが発生しました。"
 
 #: sp_google_maps.php:353
-msgid "Show Car Rout From Your Location"
+msgid "Show Car Route From Your Location"
 msgstr "車でのルート表示"
 
 #: sp_google_maps.php:354
@@ -256,7 +256,3 @@ msgstr "徒歩でのルート表示"
 #: sp_google_maps.php:355 sp_google_maps.php:358
 msgid "Show Public Transport Route"
 msgstr "公共交通機関でのルート表示。別ページが開きます。"
-
-#: sp_google_maps.php:356
-msgid "Show Public Transport Route for Mobile"
-msgstr "モバイルによる公共交通機関のルート表示"

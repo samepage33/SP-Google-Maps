@@ -1,13 +1,16 @@
 <?php
 /**
- * @package SP Google Maps
+ * @package WordPress
+ * @subpackage SP Google Maps
+ * @version 1.1
+ * @since SP Google Maps 1.0
  */
 /*
 Plugin Name: SP Google Maps
 Plugin URI: http://samepagenet.com
 Description: A simple plugin that embed Google Maps and Google Maps Street View. With Geo Routeing Functionality.
-Version: 1.0
-Author: Kudratullah
+Version: 1.1
+Author: mhamudul_hk
 Author URI: http://samepagenet.com/
 License: GPLv2 or later
 Text Domain: sp_google_maps
@@ -61,7 +64,7 @@ function sp_google_maps() {
 	);
 	$args = array(
 		'label'               => __( 'sp_google_maps', 'sp_google_maps' ),
-		'description'         => __( 'A simple plugin that embed Google Maps and Google Maps Street View. With Geo Routeing Functionality.', 'sp_google_maps' ),
+		'description'         => __( 'A simple plugin that embed Google Maps and Google Maps Street View. With Geo Routing Functionality.', 'sp_google_maps' ),
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'editor', ),
 		'hierarchical'        => false,
@@ -111,7 +114,7 @@ function load_custom_wp_admin_style_script() {
 		
 		wp_register_script( 'Google-Maps', "https://maps.googleapis.com/maps/api/js?v=3.exp", false, null);
 		
-		wp_register_script( 'AdminMapScript', plugins_url('/js/admin.js', __FILE__), array('jquery','Google-Maps'), '1.0.0', true);
+		wp_register_script( 'AdminMapScript', plugins_url('/js/admin.min.js', __FILE__), array('jquery','Google-Maps'), '1.0.0', true);
 		
 		
 		// Localize the script with new data
@@ -171,7 +174,7 @@ function sp_google_maps_settings(){
 	$maps_pov = isset( $values['maps-pov'] ) ? $values['maps-pov'][0] : '';
 	$maps_style = isset( $values['maps-style'] ) ? $values['maps-style'][0] : '';
 	$maps_icon = isset( $values['maps-icon'] ) ? $values['maps-icon'][0] : plugin_dir_url( __FILE__ ).'map_marker_icon.png';
-	
+	$maps_css = (isset( $values['maps-css'][0] )) ? $values['maps-css'][0] : '';
 	
 	// We'll use this nonce field later on when saving.
 	wp_nonce_field( 'sp_google_maps_nonce', 'meta_box_nonce' );
@@ -238,6 +241,22 @@ function sp_google_maps_settings(){
 			</div>
 		</div>
 		<div class="cf"></div>
+		<div class="box-group">
+			<div class="box-label">
+				<label for="maps-css"><?php _e('Custom CSS', 'sp_google_maps'); ?></label>
+			</div>
+			<div class="box-field">
+				<textarea class="regular-text" name="maps-css" id="maps-css" placeholder='.sp_maps_container{
+	position:relative;
+	display:block;
+	margin:0 auto;
+}...' style="width: 100%;min-height: 150px;"><?php echo $maps_css; ?></textarea>
+				<div class="cf"></div>
+				<code><?php _e('Put Your Custom CSS for This Map', 'sp_google_maps'); ?></code>
+				<code><?php _e('Available CSS Class Selectors are:', 'sp_google_maps'); ?> .sp_maps_container, .google-maps-steetview, .google-maps-basic, .google-maps-route-calc</code>
+			</div>
+		</div>
+		<div class="cf"></div>
 	</div>
 <?php  
 }
@@ -263,7 +282,9 @@ function sp_google_maps_meta_box_save( $post_id ){
 		update_post_meta( $post_id, 'maps-style', wp_kses( $_POST['maps-style'], $allowed ) );
 	
 	if( isset( $_POST['maps-icon'] ) )
-		update_post_meta( $post_id, 'maps-icon', wp_kses( $_POST['maps-icon'], $allowed ) );
+		
+	if( isset( $_POST['maps-css'] ) )
+		update_post_meta( $post_id, 'maps-css', wp_kses( $_POST['maps-css'], $allowed ) );
 }
 
 
@@ -278,12 +299,13 @@ function sp_google_maps_shortcode( $atts ) {
 	
 	$output = "";
 	
-	if(!$id || empty($id)){
+	if(!$id || empty($id) || !is_object(get_post($id))){
 		return __("Map Not Found");
 	}else{
 		$map = get_post($id);
 		
 		$values = get_post_custom($id);
+		
 		
 		$map_title = $map->post_title;
 		$map_description = $map->post_content;
@@ -299,13 +321,14 @@ function sp_google_maps_shortcode( $atts ) {
 		$pitch = $pov[1];
 		$maps_icon = $values['maps-icon'][0];
 		$maps_style = (empty( $values['maps-style'][0] )) ? '[{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]' : $values['maps-style'][0];
-
+		$maps_css = (empty( $values['maps-css'][0] )) ? '' : $values['maps-css'][0];
+		
 		//add script and style
 		wp_register_style( 'SP-Google-Maps-Style', plugins_url('/css/sp_google_maps.css', __FILE__), false, '1.0.0' );
 		
 		wp_register_script( 'Google-Maps', "//maps.googleapis.com/maps/api/js?v=3.exp", false, null);
 		
-		wp_register_script( 'SP-Google-Maps-Script', plugins_url('/js/sp_google_maps.js', __FILE__), array('Google-Maps','jquery'), '1.0.0', true);
+		wp_register_script( 'SP-Google-Maps-Script', plugins_url('/js/sp_google_maps.min.js', __FILE__), array('Google-Maps','jquery'), '1.0.0', true);
 		
 		// Localize the script with new data
 		$mapdata = array(
@@ -329,18 +352,19 @@ function sp_google_maps_shortcode( $atts ) {
 						'geo_permission_denied' => __("Your Location Settings Is Blocked.\nPlease Change Your Location Sharing Settings And Reload The Page.",'sp_google_maps'),
 						'geo_unknown_error' => __("An Unknown Error Occurred.\nPlease Try Again After Sometime.",'sp_google_maps'),
 						/*google maps api response messages*/
-						'g_zero_results' => __('No route could be found between the origin and destination.','sp_google_maps'),
 						
+						'g_zero_results' => __('No route could be found between the origin and destination.','sp_google_maps'),
 						'g_request_denied' => __('This webpage is not allowed to use the directions service.','sp_google_maps'),
 						'g_over_query_limit' => __('The webpage has gone over the requests limit in too short a period of time.','sp_google_maps'),
 						'g_not_found' => __('At least one of the origin, destination, or waypoints could not be geocoded.','sp_google_maps'),
-						'g_invalid_request' => __('The DirectionsRequest provided was invalid.','sp_google_maps'),
+						'g_invalid_request' => __('The Directions Request provided was invalid.','sp_google_maps'),
 						'g_no_status_found' => __('There was an unknown error in your request. Request status is:','sp_google_maps'),
 				)
 		);
 		wp_localize_script( 'Google-Maps', 'mapdata', $mapdata );
 		
 		wp_enqueue_style( 'SP-Google-Maps-Style' );
+		wp_add_inline_style( 'SP-Google-Maps-Style', $maps_css );
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('Google-Maps');
 		wp_enqueue_script('SP-Google-Maps-Script');
@@ -350,13 +374,12 @@ function sp_google_maps_shortcode( $atts ) {
 			$output .= '<div class="google-maps-steetview" id="pano_'.$id.'"></div>';
 			$output .= '<div class="cf"></div>';
 			$output .= '<div class="google-maps-route-calc">';
-		if(sp_google_maps_isMobile()){
-				$output .= '<a href="javascript:void(0);" onclick="calcRoute(\'DRIVING\');return false;">'. __('Show Car Rout From Your Location', 'sp_google_maps') .'</a><br>';
-				$output .= '<a href="javascript:void(0);" onclick="calcRoute(\'WALKING\');return false;">'. __('Show Walking Route', 'sp_google_maps') .'</a><br>';
-				$output .= '<a id="link" target="_blank" style="display:none;">'. __('Show Public Transport Route', 'sp_google_maps') .'</a>';
-				$output .= '<a target="_blank" href="javascript:void(0);" onclick="openPublicTransportMobile();return false;">'. __('Show Public Transport Route for Mobile', 'sp_google_maps') .'</a>';
+		if(wp_is_mobile()){
+				$output .= '<a href="#" class="travelMode" data-travelMode="DRIVING">'. __('Show Car Route From Your Location', 'sp_google_maps') .'</a><br>';
+				$output .= '<a href="#" class="travelMode" data-travelMode="WALKING">'. __('Show Walking Route', 'sp_google_maps') .'</a><br>';
+				$output .= '<a href="#" class="travelMode" data-travelMode="TRANSIT">'. __('Show Public Transport Route', 'sp_google_maps') .'</a>';
 		} else {
-				$output .= '<a id="link" target="_blank">'. __('Show Public Transport Route', 'sp_google_maps') .'</a>';
+				$output .= '<a href="#" class="travelMode" data-travelMode="TRANSIT">'. __('Show Public Transport Route', 'sp_google_maps') .'</a>';
 		}
 			$output .= '</div>';
 		$output .= '</div>';

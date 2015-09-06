@@ -97,7 +97,7 @@ msgstr ""
 #: sp_google_maps.php:64
 msgid ""
 "A simple plugin that embed Google Maps and Google Maps Street View. With Geo "
-"Routeing Functionality."
+"Routing Functionality."
 msgstr ""
 
 #: sp_google_maps.php:147
@@ -223,7 +223,7 @@ msgid ""
 msgstr ""
 
 #: sp_google_maps.php:336
-msgid "The DirectionsRequest provided was invalid."
+msgid "The Directions Request provided was invalid."
 msgstr ""
 
 #: sp_google_maps.php:337
@@ -231,7 +231,7 @@ msgid "There was an unknown error in your request. Request status is:"
 msgstr ""
 
 #: sp_google_maps.php:353
-msgid "Show Car Rout From Your Location"
+msgid "Show Car Route From Your Location"
 msgstr ""
 
 #: sp_google_maps.php:354
@@ -240,10 +240,6 @@ msgstr ""
 
 #: sp_google_maps.php:355 sp_google_maps.php:358
 msgid "Show Public Transport Route"
-msgstr ""
-
-#: sp_google_maps.php:356
-msgid "Show Public Transport Route for Mobile"
 msgstr ""
 
 #. Plugin URI of the plugin/theme

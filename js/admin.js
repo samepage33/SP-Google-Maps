@@ -1,6 +1,8 @@
 /**
- * 
- * 
+ * @package WordPress
+ * @subpackage SP Google Maps
+ * @version 1.0
+ * @since SP Google Maps 1.0
  */
 jQuery(document).ready(function($){
 	
