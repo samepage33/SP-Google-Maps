@@ -171,6 +171,7 @@ function sp_google_maps_meta_box_add(){
 function sp_google_maps_settings(){
 	global $post;
 	$values = get_post_custom( $post->ID );
+	$maps_title = isset( $values['maps-title'] )? $values['maps-title'][0] : "";
 	$maps_mwscroll = isset( $values['maps-mwscroll'] )? $values['maps-mwscroll'][0] : '';
 	$maps_latlng = isset( $values['maps-latlng'] ) ? $values['maps-latlng'][0] : '';
 	$maps_pov = isset( $values['maps-pov'] ) ? $values['maps-pov'][0] : '';
@@ -183,7 +184,18 @@ function sp_google_maps_settings(){
 ?>
 
 	<div class="group-container cf">
-				<div class="box-group">
+		<div class="box-group">
+			<div class="box-label">
+				<label for="maps-title"><?php _e('Google Maps Marker Title', 'sp_google_maps'); ?></label>
+			</div>
+			<div class="box-field">
+				<input class="regular-text" type="text" name="maps-title" id="maps-title" value="<?php echo $maps_title; ?>" placeholder="<?php _e('Google Maps Marker Title', 'sp_google_maps'); ?>" />
+				<div class="cf"></div>	
+				<code><?php _e('This title will show under mouse cursor when visitor mouse hover the map marker icon', 'sp_google_maps'); ?></code>
+			</div>
+		</div>
+		<div class="cf"></div>
+		<div class="box-group">
 			<div class="box-label">
 				<?php _e('Mouse Wheel Scroll Settings:', 'sp_google_maps'); ?>
 			</div>
@@ -295,6 +307,8 @@ function sp_google_maps_meta_box_save( $post_id ){
 	if( !current_user_can( 'edit_post' ) ) return;
 	
 	$allowed = array();
+	if( isset( $_POST['maps-title'] ) )
+		update_post_meta($post_id, 'maps-title', wp_kses( $_POST['maps-title'], $allowed ) );
 	if( isset( $_POST['maps-mwscroll'] ) )
 		update_post_meta($post_id, 'maps-mwscroll', wp_kses( $_POST['maps-mwscroll'], $allowed ) );
 	if( isset( $_POST['maps-latlng'] ) )
@@ -332,7 +346,7 @@ function sp_google_maps_shortcode( $atts ) {
 		$values = get_post_custom($id);
 		
 		
-		$map_title = $map->post_title;
+		$map_title = $values['maps-title'][0];
 		$map_description = $map->post_content;
 		
 		$maps_latlng = $values['maps-latlng'][0];

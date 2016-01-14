@@ -64,6 +64,7 @@ There are no FAQ yet. Please check the Description
 * Mouse wheel scroll setting Added
 * Admin css updated
 * Added Enqueue uncompressed scripts if WP_DEBUG is TRUE
+* Separated Maps Marker Title From Post Title
 
 ## Upgrade Notice
 
@@ -74,3 +75,4 @@ There are no FAQ yet. Please check the Description
 * Mouse wheel scroll setting Added
 * Admin css updated
 * Added Enqueue uncompressed scripts if WP_DEBUG is TRUE
+* Separated Maps Marker Title From Post Title
