@@ -59,9 +59,18 @@ There are no FAQ yet. Please check the Description
 * Minified javascript added
 * Added support for custom CSS
 * Bengali Translation Added
+= 1.1.2 =
+* Fixed map marker icon was not working
+* Mouse wheel scroll setting Added
+* Admin css updated
+* Added Enqueue uncompressed scripts if WP_DEBUG is TRUE
 
 ## Upgrade Notice
 
 = 1.1 =
 * Fixed jQuery issue, added custom css support, optimized and minified javascript files. 
-
+= 1.1.2 =
+* Fixed map marker icon was not working
+* Mouse wheel scroll setting Added
+* Admin css updated
+* Added Enqueue uncompressed scripts if WP_DEBUG is TRUE

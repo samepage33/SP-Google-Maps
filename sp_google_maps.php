@@ -73,12 +73,12 @@ function sp_google_maps() {
 		'show_in_menu'        => true,
 		'menu_position'       => 20,
 		'menu_icon'           => 'dashicons-location-alt',
-		'show_in_admin_bar'   => true,
-		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => false,
+		'show_in_nav_menus'   => false,
 		'can_export'          => true,
 		'has_archive'         => false,		
 		'exclude_from_search' => true,
-		'publicly_queryable'  => true,
+		'publicly_queryable'  => false,
 		'rewrite'             => false,
 		'capability_type'     => 'page',
 	);
@@ -108,14 +108,15 @@ function load_custom_wp_admin_style_script() {
 		$maps_pov = explode(",",$maps_pov);
 		$heading = $maps_pov[0];
 		$pitch = $maps_pov[1];
-	
-	
+		
+		wp_register_script( 'Google-Maps', "//maps.googleapis.com/maps/api/js?v=3.exp", false, null);
 		wp_register_style( 'Meta-Box', plugins_url('/css/admin.css', __FILE__), false, '1.0.0' );
 		
-		wp_register_script( 'Google-Maps', "https://maps.googleapis.com/maps/api/js?v=3.exp", false, null);
-		
-		wp_register_script( 'AdminMapScript', plugins_url('/js/admin.min.js', __FILE__), array('jquery','Google-Maps'), '1.0.0', true);
-		
+		if(defined('WP_DEBUG') && WP_DEBUG){
+			wp_register_script( 'AdminMapScript', plugins_url('/js/admin.js', __FILE__), array('jquery','Google-Maps'), '1.0.0', true);
+		}else{
+			wp_register_script( 'AdminMapScript', plugins_url('/js/admin.min.js', __FILE__), array('jquery','Google-Maps'), '1.0.0', true);
+		}
 		
 		// Localize the script with new data
 		$mapdata = array(
@@ -170,6 +171,7 @@ function sp_google_maps_meta_box_add(){
 function sp_google_maps_settings(){
 	global $post;
 	$values = get_post_custom( $post->ID );
+	$maps_mwscroll = isset( $values['maps-mwscroll'] )? $values['maps-mwscroll'][0] : '';
 	$maps_latlng = isset( $values['maps-latlng'] ) ? $values['maps-latlng'][0] : '';
 	$maps_pov = isset( $values['maps-pov'] ) ? $values['maps-pov'][0] : '';
 	$maps_style = isset( $values['maps-style'] ) ? $values['maps-style'][0] : '';
@@ -181,6 +183,27 @@ function sp_google_maps_settings(){
 ?>
 
 	<div class="group-container cf">
+				<div class="box-group">
+			<div class="box-label">
+				<?php _e('Mouse Wheel Scroll Settings:', 'sp_google_maps'); ?>
+			</div>
+			<div class="box-field">
+				<label for="maps-mwscroll-disabled">
+				<input class="radio" type="radio" name="maps-mwscroll" id="maps-mwscroll-disabled" value="0" <?php
+					echo ($maps_mwscroll == 0)? 'checked' : '';
+				?>/>
+				<?php _e('Disable', 'sp_google_maps'); ?></label>
+				<div class="cf"></div>
+				<label for="maps-mwscroll-enabled">
+				<input class="radio" type="radio" name="maps-mwscroll" id="maps-mwscroll-enabled" value="1"  <?php
+					echo ($maps_mwscroll == 1|| $maps_mwscroll == "")? 'checked' : '';
+				?>/>
+				<?php _e('Enable', 'sp_google_maps'); ?></label>
+				<div class="cf"></div>
+				<code><?php _e('Enable or Disable Mouse Wheel Scroll On Google Maps And Google Maps Street View.<br>Enabled By Default', 'sp_google_maps'); ?></code>
+			</div>
+		</div>
+		<div class="cf"></div>
 		<div class="box-group">
 			<div class="box-label">
 				<label for="maps-latlng"><?php _e('Google Maps Latitude Longitude:', 'sp_google_maps'); ?></label>
@@ -272,6 +295,8 @@ function sp_google_maps_meta_box_save( $post_id ){
 	if( !current_user_can( 'edit_post' ) ) return;
 	
 	$allowed = array();
+	if( isset( $_POST['maps-mwscroll'] ) )
+		update_post_meta($post_id, 'maps-mwscroll', wp_kses( $_POST['maps-mwscroll'], $allowed ) );
 	if( isset( $_POST['maps-latlng'] ) )
 		update_post_meta( $post_id, 'maps-latlng', wp_kses( $_POST['maps-latlng'], $allowed ) );
 	
@@ -282,7 +307,7 @@ function sp_google_maps_meta_box_save( $post_id ){
 		update_post_meta( $post_id, 'maps-style', wp_kses( $_POST['maps-style'], $allowed ) );
 	
 	if( isset( $_POST['maps-icon'] ) )
-		
+		update_post_meta( $post_id, 'maps-icon', wp_kses( $_POST['maps-icon'], $allowed ) );
 	if( isset( $_POST['maps-css'] ) )
 		update_post_meta( $post_id, 'maps-css', wp_kses( $_POST['maps-css'], $allowed ) );
 }
@@ -322,19 +347,24 @@ function sp_google_maps_shortcode( $atts ) {
 		$maps_icon = $values['maps-icon'][0];
 		$maps_style = (empty( $values['maps-style'][0] )) ? '[{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]' : $values['maps-style'][0];
 		$maps_css = (empty( $values['maps-css'][0] )) ? '' : $values['maps-css'][0];
-		
+		//maps mouse wheel scroll settings
+		$maps_mwscroll = ($values['maps-mwscroll'][0] == '0')? 'false':'true';
 		//add script and style
 		wp_register_style( 'SP-Google-Maps-Style', plugins_url('/css/sp_google_maps.css', __FILE__), false, '1.0.0' );
 		
 		wp_register_script( 'Google-Maps', "//maps.googleapis.com/maps/api/js?v=3.exp", false, null);
-		
-		wp_register_script( 'SP-Google-Maps-Script', plugins_url('/js/sp_google_maps.min.js', __FILE__), array('Google-Maps','jquery'), '1.0.0', true);
+		if(defined('WP_DEBUG') && WP_DEBUG){
+			wp_register_script( 'SP-Google-Maps-Script', plugins_url('/js/sp_google_maps.js', __FILE__), array('Google-Maps','jquery'), '1.0.0', true);
+		}else{
+			wp_register_script( 'SP-Google-Maps-Script', plugins_url('/js/sp_google_maps.min.js', __FILE__), array('Google-Maps','jquery'), '1.0.0', true);
+		}
 		
 		// Localize the script with new data
 		$mapdata = array(
 				'mapid' => $id,
 				'lat' => $lat,
 				'lng' => $lng,
+				'mwscroll' => $maps_mwscroll,
 				'style' => $maps_style,
 				'icon' => $maps_icon,
 				'title' => $map_title,
@@ -378,7 +408,6 @@ function sp_google_maps_shortcode( $atts ) {
 				$output .= '<a href="#" class="travelMode" data-travelMode="DRIVING">'. __('Show Car Route From Your Location', 'sp_google_maps') .'</a><br>';
 				$output .= '<a href="#" class="travelMode" data-travelMode="WALKING">'. __('Show Walking Route', 'sp_google_maps') .'</a><br>';
 				$output .= '<a href="#" class="travelMode" data-travelMode="TRANSIT">'. __('Show Public Transport Route', 'sp_google_maps') .'</a>';
-		} else {
 				$output .= '<a href="#" class="travelMode" data-travelMode="TRANSIT">'. __('Show Public Transport Route', 'sp_google_maps') .'</a>';
 		}
 			$output .= '</div>';

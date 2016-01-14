@@ -37,6 +37,7 @@ var options = {
 var styles = JSON.parse(mapdata.style);
 var latitude = Number(mapdata.lat);
 var longitude = Number(mapdata.lng);
+var mwscroll = JSON.parse(mapdata.mwscroll);
 var PublicTransitLink = "https://www.google.com/maps?hl=en&ie=UTF8&f=d&dirflg=r&saddr=" + latitude + "," + longitude + "&daddr=" + mapdata.messages.client_location_request;
 var WalkingDirectionsLink = "https://www.google.com/maps?hl=en&ie=UTF8&f=d&dirflg=w&saddr=" + latitude + "," + longitude + "&daddr=" + mapdata.messages.client_location_request;
 var DrivingDirectionLink = "https://www.google.com/maps?hl=en&ie=UTF8&f=d&dirflg=d&saddr=" + latitude + "," + longitude + "&daddr=" + mapdata.messages.client_location_request;
@@ -103,11 +104,13 @@ function initialize() {
 	var myOptions = {
 		zoom: 14,
 		center: latlng,
+		scrollwheel: mwscroll,
 		styles: styles,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		mapTypeControl: true
 	};
 	var map = new google.maps.Map(document.getElementById("map_canvas_"+mapdata.mapid), myOptions);
+	//map.setOptions({ scrollwheel: false });
 	directionsDisplay.setMap(map);
 	directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 	var marker = new google.maps.Marker({
@@ -117,12 +120,14 @@ function initialize() {
 		animation: google.maps.Animation.DROP,
 		title: mapdata.title
 	});
-	var infowindow = new google.maps.InfoWindow({
-		content: mapdata.description
-	});
-	google.maps.event.addListener(marker, 'click', function() {
-		infowindow.open(map,marker);
-	});
+	if(mapdata.description != ''){
+		var infowindow = new google.maps.InfoWindow({
+			content: mapdata.description
+		});
+		google.maps.event.addListener(marker, 'click', function() {
+			infowindow.open(map,marker);
+		});
+	}
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -136,6 +141,7 @@ function initialize2() {
 	};
 	var panoramaOptions = {
 		position: fenway,
+		scrollwheel: mwscroll,
 		pov: {
 			heading: Number(mapdata.heading),
 			pitch: Number(mapdata.pitch)
