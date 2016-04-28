@@ -5,7 +5,6 @@
  * @since SP Google Maps 1.0
  */
 
-
 /**
  * GeoCoding Error Callback Function
  */
@@ -34,34 +33,41 @@ var options = {
 	timeout: 60000, //60 seconds
 	maximumAge: 0
 };
-var styles = JSON.parse(mapdata.style);
+if(typeof(mapdata.style) != "undefined"){
+	var styles = JSON.parse(mapdata.style);
+}else{
+	var styles = "";
+}
 var latitude = Number(mapdata.lat);
 var longitude = Number(mapdata.lng);
-var PublicTransitLink = "https://www.google.com/maps?hl=en&ie=UTF8&f=d&dirflg=r&saddr=" + latitude + "," + longitude + "&daddr=" + mapdata.messages.client_location_request;
-var WalkingDirectionsLink = "https://www.google.com/maps?hl=en&ie=UTF8&f=d&dirflg=w&saddr=" + latitude + "," + longitude + "&daddr=" + mapdata.messages.client_location_request;
-var DrivingDirectionLink = "https://www.google.com/maps?hl=en&ie=UTF8&f=d&dirflg=d&saddr=" + latitude + "," + longitude + "&daddr=" + mapdata.messages.client_location_request;
-
+var mwscroll = JSON.parse(mapdata.mwscroll);
+var PublicTransitLink = "https://www.google.com/maps?hl=en&ie=UTF8&f=d&dirflg=r&saddr=" + encodeURI(mapdata.messages.client_location_request) + "&daddr=" + latitude + "," + longitude;
+var WalkingDirectionsLink = "https://www.google.com/maps?hl=en&ie=UTF8&f=d&dirflg=w&saddr=" + encodeURI(mapdata.messages.client_location_request) + "&daddr=" + latitude + "," + longitude;
+var DrivingDirectionLink = "https://www.google.com/maps?hl=en&ie=UTF8&f=d&dirflg=d&saddr=" + encodeURI(mapdata.messages.client_location_request) + "&daddr=" + latitude + "," + longitude;
 jQuery(document).ready(function($){
 	$(".travelMode").click(function(event){
+		var elem = $(this);
 		var Mode = $(this).attr('data-travelMode');
 		if (navigator.geolocation){
 			navigator.geolocation.getCurrentPosition(function(position){
 				var geolatitude = position.coords.latitude;
 				var geolongitude = position.coords.longitude;
 				if(Mode == 'TRANSIT'){
-					PublicTransitLink = PublicTransitLink.replace(mapdata.messages.client_location_request, geolatitude + ',' + geolongitude);
+					PublicTransitLink = PublicTransitLink.replace(encodeURI(mapdata.messages.client_location_request), geolatitude + ',' + geolongitude);
 					location.href = PublicTransitLink;
 				}else{
 					var latlng = new google.maps.LatLng(geolatitude, geolongitude);
 					var start = latlng;
 					var end = new google.maps.LatLng(latitude,longitude);//document.getElementById("routeStart").value;
-				
 					var request = {
 							origin: start,
 							destination: end,
-							travelMode: google.maps.TravelMode[Mode]
+							travelMode: google.maps.TravelMode[Mode],
+							drivingOptions: {
+								departureTime: new Date(Date.now()),  // for the time N milliseconds from now.
+								trafficModel: "optimistic",
+							},
 					};
-					
 					directionsService.route(request, function(response, status) {
 						if (status == 'ZERO_RESULTS') {
 							alert(mapdata.messages.g_zero_results);
@@ -82,7 +88,6 @@ jQuery(document).ready(function($){
 							alert(mapdata.messages.g_no_status_found +" " + status);
 						}
 					});
-					
 				}
 			},geo_error_worn,options);
 		}else{
@@ -96,53 +101,56 @@ jQuery(document).ready(function($){
 	});
 });
 
-function initialize() {
+function initMap() {
 	// Create an array of styles.
 	var latlng = new google.maps.LatLng(latitude, longitude);
 	directionsDisplay = new google.maps.DirectionsRenderer();
 	var myOptions = {
-		zoom: 14,
 		center: latlng,
+		scrollwheel: mwscroll,
 		styles: styles,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		mapTypeControl: true
+		mapTypeControl: true,
+		streetViewControl: false,
+		zoom: Number(mapdata.maps_zoom),
 	};
 	var map = new google.maps.Map(document.getElementById("map_canvas_"+mapdata.mapid), myOptions);
+	//map.setOptions({ scrollwheel: false });
 	directionsDisplay.setMap(map);
 	directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 	var marker = new google.maps.Marker({
-		position: new google.maps.LatLng(Number(mapdata.lat),Number(mapdata.lng)),
+		position: latlng,//new google.maps.LatLng(Number(mapdata.lat),Number(mapdata.lng)),
 		map: map,
 		icon: mapdata.icon,
 		animation: google.maps.Animation.DROP,
 		title: mapdata.title
 	});
-	var infowindow = new google.maps.InfoWindow({
-		content: mapdata.description
-	});
-	google.maps.event.addListener(marker, 'click', function() {
-		infowindow.open(map,marker);
-	});
+	if(mapdata.description != ''){
+		var infowindow = new google.maps.InfoWindow({
+			content: mapdata.description
+		});
+		google.maps.event.addListener(marker, 'click', function() {
+			infowindow.open(map,marker);
+		});
+	}
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', initMap);
+var sv_latitude = Number(mapdata.sv_lat);
+var sv_longitude = Number(mapdata.sv_lng);
+function initStreetView() {
+	var fenway = new google.maps.LatLng(sv_latitude,sv_longitude);
 
-function initialize2() {
-	// var fenway = new google.maps.LatLng(Number(mapdata.lat),Number(mapdata.lng));
-	var fenway = new google.maps.LatLng(Number(mapdata.lat),Number(mapdata.lng));
-	var mapOptions = {
-		center: fenway,
-		zoom: 20
-	};
 	var panoramaOptions = {
 		position: fenway,
+		scrollwheel: mwscroll,
 		pov: {
 			heading: Number(mapdata.heading),
 			pitch: Number(mapdata.pitch)
-		}
+		},
+		zoom: Number(mapdata.sv_zoom),
 	};
 	var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano_'+mapdata.mapid), panoramaOptions);
-	//map.setStreetView(panorama);
 }
 
-google.maps.event.addDomListener(window, 'load', initialize2);
+google.maps.event.addDomListener(window, 'load', initStreetView);

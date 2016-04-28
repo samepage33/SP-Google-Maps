@@ -11,6 +11,8 @@
 *   Create <u>Unlimited</u> Maps
 *   Native ShortCode Support
 *   Custom CSS
+*   Custom latitude, longitude settings for google street view.
+*   Custom zoom level for google street view
 *   Google Maps Preview in New Maps Page For Pick The Marker Location From The Map
 *   Also Have Google Street View With `Point of View` Calculation Function.
 *   Google Maps Style API Supported.
@@ -19,8 +21,6 @@
 
 **Limitation & Upcoming Features:**
 
-*   Uses Google Maps JavaScript (Experimental) API V3
-*   This Version Doesn't Have Support For API Key. Which is actually not Required For Google Maps JavaScript API V3 ([Source](https://developers.google.com/maps/signup)). This Feature Will Be Available In Next Update.
 *   Can't Use Multiple Maps in Same Page or Post. This will be fixed in next update.
 
 **Contribute To This Plugin**
@@ -45,23 +45,43 @@ There are no FAQ yet. Please check the Description
 
 ![Create And Publish A New Map](/screenshot-1.png?raw=true "Create And Publish A New Map")
 ![Publish The Map In A Page Or Post](/screenshot-2.png?raw=true "Publish The Map In A Page Or Post")
-![Maps Preview](/screenshot-3.png?raw=true "Maps Preview")
+![Maps Preview (Styled Map)](/screenshot-3.png?raw=true "Maps Preview (Styled Map)")
+![Maps Preview (Default Google Style)](/screenshot-4.png?raw=true "Maps Preview (Default Google Style)")
+![Maps Settings](/screenshot-3.png?raw=true "Maps Settings")
 
 ## Changelog
 
 = 1.0 =
-
 * Initial Release.
-
 = 1.1 =
 * Fixed jquery problem in javascript
 * Improved and optimized javascript
 * Minified javascript added
 * Added support for custom CSS
 * Bengali Translation Added
+= 1.1.2 =
+* Fixed map marker icon was not working
+* Mouse wheel scroll setting Added
+* Admin css updated
+* Added Enqueue uncompressed scripts if WP_DEBUG is TRUE
+* Separated Maps Marker Title From Post Title
+= 1.1.5 =
+* Settings Panel for managing global settings.
+* Added Support for API Key integration.
+* Addes Option for Set Default Map style with Google Maps Style API.
+* Added Zoom option for both google maps and google street view.
+* added Latitude Longitude meta box for street view.
+* Fixed Public Transport Start End Point.
+* Fixed Route calculator showing 'Public Transport' link twice
+* Optimized javascript.
+* Fixed some other small issues.
+* Removed custom style which was set as default map style for all maps.
 
 ## Upgrade Notice
 
 = 1.1 =
-* Fixed jQuery issue, added custom css support, optimized and minified javascript files. 
-
+*Fixed jQuery issue, added custom css support, optimized and minified javascript files. 
+= 1.1.2 =
+*Some New Feature and Bug Fixes
+= 1.1.5 =
+*New Features, Fixed and Optimized Scripts.

@@ -13,10 +13,29 @@
 	display: block;
 }
 .box-label{
-	width: 40%; position:relative;display:block;float:left;margin: 0 auto;
+	width: 25%; position:relative;display:block;float:left;margin: 0 auto;
 }
 .box-field{
-	width: 60%; position:relative;display:block;float:left;margin: 0 auto;
+	width: 75%; position:relative;display:block;float:left;margin: 0 auto;
+}
+.spgm_settings code.description,
+.box-field > code.description,
+.box-field > code{
+	position:relative;
+	display:block;
+	margin-top: 10px;
+	float: left;
+}
+.spgm_settings code.description{
+	margin-top: 6px;
+}
+.spgm_settings code.description.caution {
+	background: #F5F5C5;
+    background: rgba(255, 255, 0, 0.22);
+    padding: 1px 5px;
+    color: #DE0C0C;
+    border: 1px solid yellow;
+    font-weight: bold;
 }
 .map-preview{
 	margin: 10px auto;
@@ -34,7 +53,6 @@
 #map{
 	width:80%;height:400px;Margin:0 auto;
 }
-
 .cf:before,
 .cf:after {
 	content:"";

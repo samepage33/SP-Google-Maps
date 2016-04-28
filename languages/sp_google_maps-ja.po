@@ -3,99 +3,338 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: SP Google Maps 1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/sp_google_maps\n"
-"POT-Creation-Date: 2015-08-22 15:13+0600\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/sp-google-maps\n"
+"POT-Creation-Date: 2016-04-27 12:33+0600\n"
+"PO-Revision-Date: 2016-04-27 12:46+0600\n"
+"Last-Translator: Akihiro Takagi <md@samepagenet.com>\n"
+"Language-Team: SamePage <md@samepagenet.com>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-06 12:17+0600\n"
-"Language-Team: SamePage <md@samepagenet.com>\n"
-"X-Generator: Poedit 1.8.4\n"
-"Last-Translator: mhamudul_hk\n"
+"X-Generator: Poedit 1.8.5\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"Language: ja\n"
 
-#: sp_google_maps.php:35
-msgid "View Maps"
-msgstr "地図を見る"
+#: admin.php:9
+msgid "SP Google Maps Settings"
+msgstr "SP Googleマップの設定"
 
-#: sp_google_maps.php:36
+#: admin.php:10
+msgid "Maps Settings"
+msgstr "マップの設定"
+
+#: admin.php:22
+msgid "Default Settings For SP Google Maps"
+msgstr "SP Googleマップのデフォルト設定"
+
+#: admin.php:33 admin.php:36
+msgid "API Key"
+msgstr "API キー"
+
+#: admin.php:38
+msgid "API Key From Google API Console (Optional)."
+msgstr ""
+
+#: admin.php:42
+msgid "Route Calculator"
+msgstr "ルート計算"
+
+#: admin.php:45
+msgid "Show Route Calculator in Mobile"
+msgstr "モバイルのみルート計算機能を表示"
+
+#: admin.php:48
+msgid "Show Route Calculator in Desktop"
+msgstr "デスクトップのみルート計算機能を表示"
+
+#: admin.php:51
+msgid "Show Route Calculator in Both Mobile And Desktop"
+msgstr "モバイル・デスクトップ両方ルート計算機能を表示"
+
+#: admin.php:54
+msgid "Don't Show"
+msgstr "全て非表示"
+
+#: admin.php:57
+msgid ""
+"Caution: Desktop's sometime (without GPS module) show wrong location (with "
+"Geolocation API) for the user because of IP address, proxy server etc."
+msgstr ""
+"デスクトップでのご利用時は、GPSではなくIPアドレスから位置情報を取得する場合が"
+"あるので、正確なルート計算が出来ない可能性があります。"
+
+#: admin.php:61
+msgid "Default Style"
+msgstr "デフォルト初期スタイル"
+
+#: admin.php:70
+msgid ""
+"This style will be applied to all maps unless that map have a style of it's "
+"own."
+msgstr "マップのデフォルトスタイル設定"
+
+#: admin.php:72
+msgid ""
+"Get Colorful Maps From <a href=\"https://snazzymaps.com/\">https://snazzymaps."
+"com/</a><br>Or create a new style with <a href=\"http://gmaps-samples-v3."
+"googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google Maps API "
+"Styled Map Wizard</a><br>Copy and paste the <strong><em>JSON Data</em></"
+"strong> into avobe textarea."
+msgstr ""
+"下記のサイトから、色々なデザインがお選びきただけます。<a href=\"https://"
+"snazzymaps.com/\">https://snazzymaps.com/</a><br>また、新しいスタイルを<a "
+"href=\"http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/"
+"index.html\">Google Maps API Styled Map Wizard</a>で作成できます。"
+"<br><strong><em>JSON データ</em></strong>を上記のテキストエリアへコピーペース"
+"ト下さい。"
+
+#: metaboxes.php:12
+msgid "Google Maps ShortCode"
+msgstr "Googleマップのショートコード"
+
+#: metaboxes.php:20
+msgid "ShortCode For This Map"
+msgstr "ショートコード"
+
+#: metaboxes.php:26
+msgid "Copy and Paste This ShortCode To Use This Map"
+msgstr "ショートコードをコピー＆ペーストして下さい。"
+
+#: metaboxes.php:28
+msgid "ShortCode will apear after first save."
+msgstr "ショートコードは、一度更新された後に発行されます。"
+
+#: metaboxes.php:36
+msgid "Google Maps Settings"
+msgstr "Googleマップの設定"
+
+#: metaboxes.php:62 metaboxes.php:65
+msgid "Google Maps Marker Title"
+msgstr "マウスホバーテキスト"
+
+#: metaboxes.php:67
+msgid ""
+"This title will show under mouse cursor when visitor mouse hover the map "
+"marker icon"
+msgstr "こちらは、マウスホバーされた際に表示されます。"
+
+#: metaboxes.php:73
+msgid "Mouse Wheel Scroll Settings:"
+msgstr "マウスホバーの際に、ズーム認識設定。"
+
+#: metaboxes.php:80
+msgid "Disable"
+msgstr "オフ＊"
+
+#: metaboxes.php:86
+msgid "Enable"
+msgstr "有効"
+
+#: metaboxes.php:88
+msgid ""
+"Enable or Disable Mouse Wheel Scroll On Google Maps And Google Maps Street "
+"View.<br>Disabled By Default"
+msgstr ""
+"デフォルト設定で、マウスがGoogle Mapとストリートビューに、マウスホバーした際"
+"に、認識するかしないかの設定。"
+
+#: metaboxes.php:94
+msgid "Google Maps Latitude Longitude:"
+msgstr "緯度、経度"
+
+#: metaboxes.php:99
+msgid ""
+"Input Latitude &amp; Longitude Separated By Comma. Or Choose Your Location "
+"From from the map below. eg. lat,lon."
+msgstr ""
+"緯度経度をコンマ区切りで入力するか、マップのマーカーを動かして選択下さい。"
+
+#: metaboxes.php:103
+msgid "Google Maps Zoom Level:"
+msgstr "地図の縮尺レベル"
+
+#: metaboxes.php:108
+msgid ""
+"Input into the text box above or change from the map preview.<br><em>Allowed "
+"minimum value %d &amp; maximum value %d by google maps.</em>"
+msgstr ""
+"テキストボックスに、地図の縮尺レベルの数字を入力下さい。%dから%dまでの数字をご"
+"利用いただき、数字が大きくなるほど地図が拡大されます。"
+
+#: metaboxes.php:112
+msgid "Choose Your Location By Dragging The Marker"
+msgstr "マーカーを動かして位置を指定して下さい。"
+
+#: metaboxes.php:119
+msgid "Street View Angle:"
+msgstr "ストリートビュー　プレビュー　角度を焼成して下さい。"
+
+#: metaboxes.php:124
+msgid ""
+"Separated By Comma. Set Heading &amp; Pitch, eg. heading,pitch. Or use the "
+"Street Map Preview to set Point-of-View."
+msgstr ""
+"プレビュー内でドラッグするか、コンマ区切りで、角度、ピッチを指定して下さい。"
+
+#: metaboxes.php:128
+msgid "Street View Latitude Longitude:"
+msgstr "ストリートビューの緯度経度"
+
+#: metaboxes.php:133
+msgid ""
+"Input Latitude &amp; Longitude Separated By Comma. Or Change The View, "
+"Latitude and Longitude will be automatically calculated. eg. lat,lon."
+msgstr ""
+"緯度経度はコンマ区切りで入力下さい。緯度、経度は、画面内を動かしても自動で入力"
+"されます。"
+
+#: metaboxes.php:137
+msgid "Street View Zoom Level:"
+msgstr "ストリートビューズームレベル"
+
+#: metaboxes.php:142
+msgid ""
+"Input into the text box above  or change from the map preview.<br><em>Allowed "
+"minimum value %d &amp; maximum value %d by google street view.</em>"
+msgstr ""
+"テキストボックスに、ストリートビューの縮尺レベルの数字を入力下さい。%dから%dま"
+"での数字をご利用いただき、数字が大きくなるほど地図が拡大されます。"
+
+#: metaboxes.php:146
+msgid "Choose Your Desigre Angle"
+msgstr "角度を指定して下さい。"
+
+#: metaboxes.php:153
+msgid "Google Maps Marker Icon"
+msgstr "マーカーアイコンを指定下さい。"
+
+#: metaboxes.php:156
+msgid "Marker Icon URL"
+msgstr "マーカーアイコンのURL"
+
+#: metaboxes.php:157
+msgid "Google Maps Custom Marker Icon"
+msgstr "カスタムマーカーアイコン"
+
+#: metaboxes.php:159
+msgid "Icon Url. Recommended 64x64PX PNG Image"
+msgstr "マーカーアイコンイメージは、64×64Pxをお勧めします。"
+
+#: metaboxes.php:165
+msgid "Maps Style"
+msgstr "マップレイアウト"
+
+#: metaboxes.php:175
+msgid "Custom Maps Style for this map."
+msgstr "カスタムマップスタイル"
+
+#: metaboxes.php:176
+msgid ""
+"Get Colorful Maps From <a href=\"https://snazzymaps.com/\">https://snazzymaps."
+"com/</a><br>Or create a new style with <a href=\"http://gmaps-samples-v3."
+"googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google Maps API "
+"Styled Map Wizard</a><br>Copy and paste the <strong><em>JSON Data</em></"
+"strong> into above  textarea."
+msgstr ""
+"下記のサイトから、色々なデザインがお選びきただけます。<a href=\"https://"
+"snazzymaps.com/\">https://snazzymaps.com/</a><br>また、新しいスタイルを<a "
+"href=\"http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/"
+"index.html\">Google Maps API Styled Map Wizard</a>で作成できます。"
+"<br><strong><em>JSON データ</em></strong>を上記のテキストエリアへコピーペース"
+"ト下さい。"
+
+#: metaboxes.php:182
+msgid "Custom CSS"
+msgstr "カスタムCSS"
+
+#: metaboxes.php:191
+msgid "Custom CSS for this map."
+msgstr "カスタムCSS"
+
+#: metaboxes.php:192
+msgid "Available CSS Class Selectors are:"
+msgstr "ご利用頂けるCSSクラス:"
+
+#: sp_google_maps.php:38
 msgid "Support"
 msgstr "サポート"
 
-#: sp_google_maps.php:37
+#: sp_google_maps.php:39
 msgid "Facebook"
 msgstr ""
 
-#: sp_google_maps.php:38
+#: sp_google_maps.php:40
 msgid "Google Plus"
 msgstr ""
 
 #: sp_google_maps.php:46
+msgid "View Maps"
+msgstr "地図を見る"
+
+#: sp_google_maps.php:47
+msgid "Settings"
+msgstr "設定"
+
+#: sp_google_maps.php:54
 msgctxt "Post Type General Name"
 msgid "SP Google Maps"
 msgstr ""
 
-#: sp_google_maps.php:47
+#: sp_google_maps.php:55
 msgctxt "Post Type Singular Name"
 msgid "SP Google Maps"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: sp_google_maps.php:48 sp_google_maps.php:49
+#: sp_google_maps.php:56 sp_google_maps.php:57 sp_google_maps.php:71
 msgid "SP Google Maps"
 msgstr ""
 
-#: sp_google_maps.php:50
+#: sp_google_maps.php:58
 msgid "Parent Item:"
 msgstr "親アイテム："
 
-#: sp_google_maps.php:51
+#: sp_google_maps.php:59
 msgid "All Maps"
 msgstr "すべてのマップ"
 
-#: sp_google_maps.php:52
+#: sp_google_maps.php:60
 msgid "Add New Map"
 msgstr "新規追加"
 
-#: sp_google_maps.php:53
+#: sp_google_maps.php:61
 msgid "Add New"
 msgstr "新規追加"
 
-#: sp_google_maps.php:54
+#: sp_google_maps.php:62
 msgid "New Map"
 msgstr "新規追加"
 
-#: sp_google_maps.php:55
+#: sp_google_maps.php:63
 msgid "Edit Map"
 msgstr "マップを修正"
 
-#: sp_google_maps.php:56
+#: sp_google_maps.php:64
 msgid "Update Map"
 msgstr "更新"
 
-#: sp_google_maps.php:57
+#: sp_google_maps.php:65
 msgid "View Map"
 msgstr "地図を見る"
 
-#: sp_google_maps.php:58
+#: sp_google_maps.php:66
 msgid "Search Map"
 msgstr "マップを探す"
 
-#: sp_google_maps.php:59
+#: sp_google_maps.php:67
 msgid "Not found"
 msgstr "何も見つかりませんでした。"
 
-#: sp_google_maps.php:60
+#: sp_google_maps.php:68
 msgid "Not found in Trash"
 msgstr "何も見つかりませんでした。"
 
-#: sp_google_maps.php:63
-msgid "sp_google_maps"
-msgstr ""
-
-#. Description of the plugin/theme
-#: sp_google_maps.php:64
+#: sp_google_maps.php:72
 msgid ""
 "A simple plugin that embed Google Maps and Google Maps Street View. With Geo "
 "Routing Functionality."
@@ -103,101 +342,23 @@ msgstr ""
 "このプラグインはストリートビュー、google mapにルート機能を付けたものになりま"
 "す。GEO ルート機能を使ってます。"
 
-#: sp_google_maps.php:147
-msgid "ShortCode For This Map"
-msgstr "ショートコード"
-
-#: sp_google_maps.php:153
-msgid "Copy and Paste This ShortCode To Use This Map"
-msgstr "ショートコードをコピー＆ペーストして下さい。"
-
-#: sp_google_maps.php:155
-msgid "ShortCode will apear after first save."
-msgstr "ショートコードは、一度更新された後に発行されます。"
-
-#: sp_google_maps.php:182
-msgid "Google Maps Latitude Longitude:"
-msgstr "緯度、経度"
-
-#: sp_google_maps.php:187
-msgid ""
-"Input Latitude &amp; Longitude Saperated By Comma. Or Choose Your Location "
-"From from the map bellow. eg. lat,lan."
-msgstr ""
-"緯度経度をコンマ区切りで入力するか、マップのマーカーを動かして選択下さい。"
-
-#: sp_google_maps.php:191
-msgid "Choose Your Location By Dragging The Marker"
-msgstr "マーカーを動かして位置を指定して下さい。"
-
-#: sp_google_maps.php:198
-msgid "Street View Angle:"
-msgstr "ストリートビュー　プレビュー　角度を焼成して下さい。"
-
-#: sp_google_maps.php:203
-msgid ""
-"Saperated By Comma. Set Heading &amp; Pitch, eg. heading,pitch. Or use the "
-"Street Map Preview to set Point-of-View."
-msgstr ""
-"プレビュー内でドラッグするか、コンマ区切りで、角度、ピッチを指定して下さい。"
-
-#: sp_google_maps.php:207
-msgid "Choose Your Desigre Angle"
-msgstr "角度を指定して下さい。"
-
-#: sp_google_maps.php:214
-msgid "Google Maps Marker Icon"
-msgstr "マーカーアイコンを指定下さい。"
-
-#: sp_google_maps.php:217
-msgid "Marker Icon URL"
-msgstr "マーカーアイコンのURL"
-
-#: sp_google_maps.php:218
-msgid "Google Maps Custom Marker Icon"
-msgstr "カスタムマーカーアイコン"
-
-#: sp_google_maps.php:220
-msgid "Icon Url. Recommended 64x64PX PNG Image"
-msgstr "マーカーアイコンイメージは、64×64Pxをお勧めします。"
-
-#: sp_google_maps.php:226
-msgid "Maps Style"
-msgstr "マップレイアウト"
-
-#: sp_google_maps.php:236
-msgid ""
-"Google Maps Styled API.<br>Get Settings For Colorful Google Maps From <a href="
-"\"https://snazzymaps.com/\">https://snazzymaps.com/</a><br>Copy and paste the "
-"<em>JavaScript Style Array</em> Here.<br>Or create a new style with  <a href="
-"\"http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index."
-"html\">Google Maps API Styled Map Wizard</a> and copy-paste the Json data "
-"here."
-msgstr ""
-"Google Maps Styled API.<br>Get Settings For Colorful Google Maps From <a href="
-"\"https://snazzymaps.com/\">https://snazzymaps.com/</a><br>Copy and paste the "
-"<em>JavaScript Style Array</em> Here.<br>Or create a new style with  <a href="
-"\"http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index."
-"html\">Google Maps API Styled Map Wizard</a> and copy-paste the Json data "
-"here."
-
-#: sp_google_maps.php:281
+#: sp_google_maps.php:175
 msgid "Map Not Found"
 msgstr "何も見つかりませんでした。"
 
-#: sp_google_maps.php:322
+#: sp_google_maps.php:238
 msgid "Type Your Location"
 msgstr "マーカーを動かして位置を指定して下さい。"
 
-#: sp_google_maps.php:325
+#: sp_google_maps.php:241
 msgid "Your Browser Doesn't Support Location Service."
 msgstr "お使いのブラウザはロケーションサービスをサポートしていません。"
 
-#: sp_google_maps.php:326
+#: sp_google_maps.php:242
 msgid "Request Timeout. Please Reload Your Browser."
 msgstr "要求がタイムアウトしました。ブラウザをリロードしてください。"
 
-#: sp_google_maps.php:327
+#: sp_google_maps.php:243
 msgid ""
 "Your Position is Unavailable.\n"
 "Please Activate Your GPS And Location Services And Reload The Page."
@@ -205,7 +366,7 @@ msgstr ""
 "あなたの位置は使用できません。あなたのGPSと位置情報サービスを有効にしてページ"
 "を再読み込みしてください。"
 
-#: sp_google_maps.php:328
+#: sp_google_maps.php:244
 msgid ""
 "Your Location Settings Is Blocked.\n"
 "Please Change Your Location Sharing Settings And Reload The Page."
@@ -213,46 +374,130 @@ msgstr ""
 "あなたのGPS設定はブロックされます。あなたの場所の共有設定を変更したり、ページ"
 "を再読み込みしてください。"
 
-#: sp_google_maps.php:329
+#: sp_google_maps.php:245
 msgid ""
 "An Unknown Error Occurred.\n"
 "Please Try Again After Sometime."
 msgstr "不明なエラーが発生しました。後程、再度お試しください。"
 
-#: sp_google_maps.php:331
+#: sp_google_maps.php:248
 msgid "No route could be found between the origin and destination."
 msgstr "ルートは、出発地と目的地の間で見つかりませんでした。"
 
-#: sp_google_maps.php:333
+#: sp_google_maps.php:249
 msgid "This webpage is not allowed to use the directions service."
 msgstr "このウェブページは方向サービスを使用することはできません。"
 
-#: sp_google_maps.php:334
+#: sp_google_maps.php:250
 msgid ""
 "The webpage has gone over the requests limit in too short a period of time."
 msgstr "ウェブページは、時間制限を超えてしまいました"
 
-#: sp_google_maps.php:335
+#: sp_google_maps.php:251
 msgid ""
 "At least one of the origin, destination, or waypoints could not be geocoded."
 msgstr "スマートフォンから位置情報が取得できませんでした。"
 
-#: sp_google_maps.php:336
+#: sp_google_maps.php:252
 msgid "The Directions Request provided was invalid."
 msgstr "道順リクエストが不正です。"
 
-#: sp_google_maps.php:337
+#: sp_google_maps.php:253
 msgid "There was an unknown error in your request. Request status is:"
 msgstr "不明なエラーが発生しました。"
 
-#: sp_google_maps.php:353
+#: sp_google_maps.php:276
 msgid "Show Car Route From Your Location"
 msgstr "車でのルート表示"
 
-#: sp_google_maps.php:354
+#: sp_google_maps.php:277
 msgid "Show Walking Route"
 msgstr "徒歩でのルート表示"
 
-#: sp_google_maps.php:355 sp_google_maps.php:358
+#: sp_google_maps.php:278
 msgid "Show Public Transport Route"
 msgstr "公共交通機関でのルート表示。別ページが開きます。"
+
+#. Plugin URI of the plugin/theme
+msgid "http://samepagenet.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A simple plugin that embed Google Maps and Google Maps Street View. With "
+"Google Maps Routeing Functionality."
+msgstr ""
+"このプラグインはストリートビュー、google mapにルート機能を付けたものになりま"
+"す。GEO ルート機能を使ってます。"
+
+#. Author of the plugin/theme
+msgid "mhamudul_hk"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://samepagenet.com/"
+msgstr ""
+
+#~ msgid ""
+#~ "Input Latitude &amp; Longitude Separated By Comma. Or Choose Your Location "
+#~ "From from the map bellow. eg. lat,lan."
+#~ msgstr ""
+#~ "緯度経度をコンマ区切りで入力するか、マップのマーカーを動かして選択下さい。"
+
+#~ msgid ""
+#~ "Input Latitude &amp; Longitude Saperated By Comma. Or Choose Your Location "
+#~ "From from the map bellow. eg. lat,lan."
+#~ msgstr ""
+#~ "緯度経度をコンマ区切りで入力するか、マップのマーカーを動かして選択下さい。"
+
+#~ msgid ""
+#~ "Saperated By Comma. Set Heading &amp; Pitch, eg. heading,pitch. Or use the "
+#~ "Street Map Preview to set Point-of-View."
+#~ msgstr ""
+#~ "プレビュー内でドラッグするか、コンマ区切りで、角度、ピッチを指定して下さ"
+#~ "い。"
+
+#~ msgid ""
+#~ "Input Latitude &amp; Longitude Saperated By Comma. Or Change The View, "
+#~ "Latitude and Longitude will be automatically calculated. eg. lat,lan."
+#~ msgstr ""
+#~ "緯度経度はコンマ区切りで入力下さい。緯度、経度は、画面内を動かしても自動で"
+#~ "入力されます。"
+
+#~ msgid ""
+#~ "Input into the text box avobe or change from the map preview."
+#~ "<br><em>Allowed minimum value %d &amp; maximum value %d by google street "
+#~ "view.</em>"
+#~ msgstr ""
+#~ "テキストボックスに、ストリートビューの縮尺レベルの数字を入力下さい。%dか"
+#~ "ら%dまでの数字をご利用いただき、数字が大きくなるほど地図が拡大されます。"
+
+#~ msgid ""
+#~ "Input into the text box avobe or change from the map preview."
+#~ "<br><em>Allowed minimum value %d &amp; maximum value %d by google maps.</"
+#~ "em>"
+#~ msgstr ""
+#~ "テキストボックスに、地図の縮尺レベルの数字を入力下さい。%dから%dまでの数字"
+#~ "をご利用いただき、数字が大きくなるほど地図が拡大されます。"
+
+#~ msgid ""
+#~ "A simple plugin that embed Google Maps and Google Maps Street View. With "
+#~ "Geo Routeing Functionality."
+#~ msgstr ""
+#~ "このプラグインはストリートビュー、google mapにルート機能を付けたものになり"
+#~ "ます。GEO ルート機能を使ってます。"
+
+#~ msgid ""
+#~ "Google Maps Style API.<br>Get Settings For Colorful Google Maps From <a "
+#~ "href=\"https://snazzymaps.com/\">https://snazzymaps.com/</a><br>Copy and "
+#~ "paste the <em>JSON Array</em> Here.<br>Or create a new style with  <a href="
+#~ "\"http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index."
+#~ "html\">Google Maps API Styled Map Wizard</a> and copy-paste the Json data "
+#~ "here."
+#~ msgstr ""
+#~ "Google Maps Style API.<br>Get Settings For Colorful Google Maps From <a "
+#~ "href=\"https://snazzymaps.com/\">https://snazzymaps.com/</a><br>Copy and "
+#~ "paste the <em>JSON Array</em> Here.<br>Or create a new style with  <a href="
+#~ "\"http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index."
+#~ "html\">Google Maps API Styled Map Wizard</a> and copy-paste the Json data "
+#~ "here."
