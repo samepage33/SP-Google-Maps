@@ -6,17 +6,17 @@
  * @author      Kudratullah
  * @copyright   2017 SamePage Inc.
  * @license     GPL-2.0+
- * @version     1.1.7
+ * @version     1.1.8
  * 
  * @wordpress-plugin
  * Plugin Name: SP Google Maps
  * Plugin URI: https://wordpress.org/plugins/sp-google-maps/
  * Description: A simple plugin that embed Google Maps and Google Maps Street View. With Google Maps Routeing Functionality.
- * Version: 1.1.6
+ * Version: 1.1.7
  * Author: SamePage Inc.
  * Author URI: http://samepagenet.com/
  * Text Domain: sp_google_maps
- * Domain Path: /languages/
+ * Domain Path: /languages
  * License: GPLv2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
@@ -26,7 +26,7 @@ if ( !function_exists( 'add_action' ) ) {
 	echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
 	exit;
 }
-define('SPGMVersion', '1.1.7');
+define('SPGMVersion', '1.1.8');
 define("SPGMDir", plugin_dir_path( __FILE__ ));
 define("SPGMBase", plugin_basename(__FILE__));
 if(!function_exists('spgm_i18n')){

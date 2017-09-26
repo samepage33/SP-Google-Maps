@@ -10,6 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 SP Google Maps is a lightweight plugin for creating google maps with street view for your WordPress Site.
 
 == Description ==
+
 <strong>SP Google Maps</strong> is a lightweight plugin for creating google maps with street view for your WordPress Site. You can create unlimited map with this plugin. and the user can also calculate the route to your place from your website based on <code>Google Maps</code> and <code>HTML5's Geo-Location API</code>
 <strong>This is a easy to use plugin includes:</strong>
 <ul>
@@ -33,6 +34,7 @@ You can contribute to this plugin by your valuable suggestions, comments. Please
 Our Git Ripo for this Plugin <a href="https://github.com/samepage33/SP-Google-Maps">SP Google Maps</a>
 
 == Installation ==
+
 **This section describes how to install the plugin and get it working:**
 `1. Download & unzip to WordPress plugin directory.
 2. Login to WordPress admin panel and active the plugin.
@@ -41,6 +43,7 @@ Our Git Ripo for this Plugin <a href="https://github.com/samepage33/SP-Google-Ma
 5. Click 'Save Changes' button to save settings.`
 
 **Upgrade:**
+
 `1. Deactivate SP Google Maps.
 2. Download the latest SP Google Maps , unzip and over write the old files.       
 3. Activate SP Google Maps.
@@ -48,9 +51,11 @@ Our Git Ripo for this Plugin <a href="https://github.com/samepage33/SP-Google-Ma
 Simply use Wordpress automatic upgrade.`
 
 == Frequently Asked Questions ==
+
 There are no FAQ yet. Please check the Description
 
 == Screenshots ==
+
 1. Create And Publish A New Map
 2. Publish The Map In A Page Or Post
 3. Maps Preview (Styled Map)
@@ -58,6 +63,7 @@ There are no FAQ yet. Please check the Description
 5. Maps Settings
 
 == Changelog ==
+
 = 1.0 =
 * Initial Release.
 = 1.1 =
@@ -91,8 +97,11 @@ There are no FAQ yet. Please check the Description
 * Allow mouse scroll zoom in Full Screen Mode if scroll is disabled.
 = 1.1.7 =
 * Language File Update
+= 1.1.8 =
+* Update Text Domain Path
 
 == Upgrade Notice ==
+
 = 1.1 =
 * Fixed jQuery issue, added custom css support, optimized and minified javascript files. 
 = 1.1.2 =
@@ -107,3 +116,5 @@ There are no FAQ yet. Please check the Description
 * Allow mouse scroll zoom in Full Screen Mode if scroll is disabled.
 = 1.1.7 =
 * Language File Update
+= 1.1.8 =
+* Update Text Domain Path
