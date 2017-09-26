@@ -12,7 +12,7 @@
  * Plugin Name: SP Google Maps
  * Plugin URI: https://wordpress.org/plugins/sp-google-maps/
  * Description: A simple plugin that embed Google Maps and Google Maps Street View. With Google Maps Routeing Functionality.
- * Version: 1.1.7
+ * Version: 1.1.8
  * Author: SamePage Inc.
  * Author URI: http://samepagenet.com/
  * Text Domain: sp_google_maps
