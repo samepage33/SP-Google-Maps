@@ -1,8 +1,12 @@
 /**
- * @package WordPress
- * @subpackage SP Google Maps
- * @version 1.1
- * @since SP Google Maps 1.0
+ * Frontend Styles for SP Google Maps
+ * 
+ * @package     SP Google Maps
+ * @author      Kudratullah
+ * @version     1.1.1
+ * @since       SP Google Maps 1.0
+ * @copyright   2017 SamePage Inc.
+ * @license     GPL-2.0+ 
  */
 .sp_maps_container{
 	position:relative;
@@ -26,7 +30,9 @@
 	width: 100%;
 	
 }
-
+.google-maps-steetview .gm-iv-address {
+	height: auto !important;
+}
 @media only screen and (min-width: 767px){
 	.google-maps-steetview,
 	.google-maps-basic{
