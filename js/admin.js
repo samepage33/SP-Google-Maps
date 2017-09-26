@@ -1,15 +1,17 @@
 /**
- * @package WordPress
- * @subpackage SP Google Maps
- * @version 1.1
- * @since SP Google Maps 1.0
+ * Admin Scripts for SP Google Maps
+ * 
+ * @package     SP Google Maps
+ * @author      Kudratullah
+ * @version     1.1.2
+ * @since       SP Google Maps 1.0
+ * @copyright   2017 SamePage Inc.
+ * @license     GPL-2.0+ 
  */
-jQuery(document).ready(function($){
-	
+(function($){
 	var panorama;
-	
 	//Basic Steet Maps
-	function dragableMaps(){
+	var initializeDragableMarkerMaps = function(){
 		//var LatLng = new google.maps.LatLng(23.727369,90.396604);
 		var LatLng = new google.maps.LatLng(Number(mapdata.maps_lat),Number(mapdata.maps_lng));
 		
@@ -48,34 +50,28 @@ jQuery(document).ready(function($){
 			map.panTo(marker.getPosition());
 			document.getElementById('maps-zoom').value = map.getZoom();
 		});
-	}
-	google.maps.event.addDomListener(window, 'load', dragableMaps);
-	
+	};
 	//Street View Maps
-
-	function initialize() {
-		
+	var initializeStreetView = function() {
 		var LatLng = new google.maps.LatLng(Number(mapdata.sv_lat),Number(mapdata.sv_lng));
-
-	  var panoramaOptions = {
-	    position: LatLng,
-	    pov: {
-	      heading: Number(mapdata.heading),
-	      pitch: Number(mapdata.pitch)
-	    },
-	    zoom:Number(mapdata.sv_zoom),
-	  };
-	  
-	  	panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), panoramaOptions);
-	  	//on pov input field change
-	  	$("#maps-pov").change(function(){
-	  		pov = $(this).val().split(',');
-	  		panorama.setPov(({
-	  			heading: Number(pov[0]),
-	  			pitch: Number(pov[1]),
-	  		}));
-	  	});
-	    //on zoom input field change
+		var panoramaOptions = {
+			position: LatLng,
+			pov: {
+				heading: Number(mapdata.heading),
+				pitch: Number(mapdata.pitch)
+			},
+			zoom:Number(mapdata.sv_zoom),
+		};
+		panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), panoramaOptions);
+		//on pov input field change
+		$("#maps-pov").change(function(){
+			pov = $(this).val().split(',');
+			panorama.setPov(({
+				heading: Number(pov[0]),
+				pitch: Number(pov[1]),
+			}));
+		});
+		//on zoom input field change
 		$("#maps-SV-zoom").change(function(){
 			panorama.setZoom(Number($(this).val()));
 		});
@@ -99,7 +95,7 @@ jQuery(document).ready(function($){
 		google.maps.event.addListener(panorama, 'position_changed', function() {
 			document.getElementById('maps-SV-latlng').value = (panorama.getPosition().lat()+','+panorama.getPosition().lng());
 		});
-	}
-
-	google.maps.event.addDomListener(window, 'load', initialize);
-});
+	};
+	google.maps.event.addDomListener(window, 'load', initializeDragableMarkerMaps);
+	google.maps.event.addDomListener(window, 'load', initializeStreetView);
+})(jQuery);

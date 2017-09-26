@@ -1,394 +1,385 @@
-# Copyright (C) 2016 SP Google Maps
-# This file is distributed under the same license as the SP Google Maps package.
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: SP Google Maps 1.1.5\n"
+"Project-Id-Version: SP Google Maps 1.1.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/sp-google-maps\n"
-"POT-Creation-Date: 2016-04-27 06:25:36+00:00\n"
+"POT-Creation-Date: 2017-09-26 13:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"X-Generator: Loco - https://localise.biz/"
 
-#: admin.php:9
+#: admin.php:23
 msgid "SP Google Maps Settings"
 msgstr ""
 
-#: admin.php:10
+#: admin.php:24
 msgid "Maps Settings"
 msgstr ""
 
-#: admin.php:22
+#: admin.php:47
 msgid "Default Settings For SP Google Maps"
 msgstr ""
 
-#: admin.php:33 admin.php:36
+#: admin.php:57 admin.php:59
 msgid "API Key"
 msgstr ""
 
-#: admin.php:38
-msgid "API Key From Google API Console (Optional)."
+#: admin.php:60
+msgid "Google API Console"
 msgstr ""
 
-#: admin.php:42
+#: admin.php:64
 msgid "Route Calculator"
 msgstr ""
 
-#: admin.php:45
+#: admin.php:67
 msgid "Show Route Calculator in Mobile"
 msgstr ""
 
-#: admin.php:48
+#: admin.php:70
 msgid "Show Route Calculator in Desktop"
 msgstr ""
 
-#: admin.php:51
+#: admin.php:73
 msgid "Show Route Calculator in Both Mobile And Desktop"
 msgstr ""
 
-#: admin.php:54
+#: admin.php:76
 msgid "Don't Show"
 msgstr ""
 
-#: admin.php:57
+#: admin.php:79
 msgid ""
 "Caution: Desktop's sometime (without GPS module) show wrong location (with "
 "Geolocation API) for the user because of IP address, proxy server etc."
 msgstr ""
 
-#: admin.php:61
+#: admin.php:83
 msgid "Default Style"
 msgstr ""
 
-#: admin.php:70
+#: admin.php:92
 msgid ""
 "This style will be applied to all maps unless that map have a style of it's "
 "own."
 msgstr ""
 
-#: admin.php:72
+#: admin.php:94
 msgid ""
-"Get Colorful Maps From <a href=\"https://snazzymaps.com/\">https://"
-"snazzymaps.com/</a><br>Or create a new style with <a href=\"http://gmaps-"
+"Get Colorful Maps From <a href=\"https://snazzymaps.com/\">https:"
+"//snazzymaps.com/</a><br>Or create a new style with <a href=\"http://gmaps-"
 "samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google "
-"Maps API Styled Map Wizard</a><br>Copy and paste the <strong><em>JSON Data</"
-"em></strong> into avobe textarea."
+"Maps API Styled Map Wizard</a><br>Copy and paste the <strong><em>JSON "
+"Data</em></strong> into avobe textarea."
 msgstr ""
 
-#: metaboxes.php:12
+#: metaboxes.php:23
 msgid "Google Maps ShortCode"
 msgstr ""
 
-#: metaboxes.php:20
+#: metaboxes.php:31
 msgid "ShortCode For This Map"
 msgstr ""
 
-#: metaboxes.php:26
+#: metaboxes.php:37
 msgid "Copy and Paste This ShortCode To Use This Map"
 msgstr ""
 
-#: metaboxes.php:28
+#: metaboxes.php:39
 msgid "ShortCode will apear after first save."
 msgstr ""
 
-#: metaboxes.php:36
-msgid "Google Maps Settings"
-msgstr ""
-
-#: metaboxes.php:62 metaboxes.php:65
+#: metaboxes.php:73 metaboxes.php:76
 msgid "Google Maps Marker Title"
 msgstr ""
 
-#: metaboxes.php:67
+#: metaboxes.php:78
 msgid ""
 "This title will show under mouse cursor when visitor mouse hover the map "
 "marker icon"
 msgstr ""
 
-#: metaboxes.php:73
+#: metaboxes.php:84
 msgid "Mouse Wheel Scroll Settings:"
 msgstr ""
 
-#: metaboxes.php:80
+#: metaboxes.php:91
 msgid "Disable"
 msgstr ""
 
-#: metaboxes.php:86
+#: metaboxes.php:97
 msgid "Enable"
 msgstr ""
 
-#: metaboxes.php:88
+#: metaboxes.php:99
 msgid ""
 "Enable or Disable Mouse Wheel Scroll On Google Maps And Google Maps Street "
 "View.<br>Disabled By Default"
 msgstr ""
 
-#: metaboxes.php:94
+#: metaboxes.php:105
 msgid "Google Maps Latitude Longitude:"
 msgstr ""
 
-#: metaboxes.php:99
+#: metaboxes.php:110
 msgid ""
 "Input Latitude &amp; Longitude Separated By Comma. Or Choose Your Location "
 "From from the map below. eg. lat,lon."
 msgstr ""
 
-#: metaboxes.php:103
+#: metaboxes.php:114
 msgid "Google Maps Zoom Level:"
 msgstr ""
 
-#: metaboxes.php:108
+#: metaboxes.php:119
+#, php-format
 msgid ""
 "Input into the text box above or change from the map preview.<br><em>Allowed "
 "minimum value %d &amp; maximum value %d by google maps.</em>"
 msgstr ""
 
-#: metaboxes.php:112
+#: metaboxes.php:123
 msgid "Choose Your Location By Dragging The Marker"
 msgstr ""
 
-#: metaboxes.php:119
+#: metaboxes.php:130
 msgid "Street View Angle:"
 msgstr ""
 
-#: metaboxes.php:124
+#: metaboxes.php:135
 msgid ""
 "Separated By Comma. Set Heading &amp; Pitch, eg. heading,pitch. Or use the "
 "Street Map Preview to set Point-of-View."
 msgstr ""
 
-#: metaboxes.php:128
+#: metaboxes.php:139
 msgid "Street View Latitude Longitude:"
 msgstr ""
 
-#: metaboxes.php:133
+#: metaboxes.php:144
 msgid ""
 "Input Latitude &amp; Longitude Separated By Comma. Or Change The View, "
 "Latitude and Longitude will be automatically calculated. eg. lat,lon."
 msgstr ""
 
-#: metaboxes.php:137
+#: metaboxes.php:148
 msgid "Street View Zoom Level:"
 msgstr ""
 
-#: metaboxes.php:142
-msgid ""
-"Input into the text box above  or change from the map preview."
-"<br><em>Allowed minimum value %d &amp; maximum value %d by google street "
-"view.</em>"
-msgstr ""
-
-#: metaboxes.php:146
-msgid "Choose Your Desigre Angle"
-msgstr ""
-
 #: metaboxes.php:153
-msgid "Google Maps Marker Icon"
-msgstr ""
-
-#: metaboxes.php:156
-msgid "Marker Icon URL"
+#, php-format
+msgid ""
+"Input into the text box above  or change from the map preview.<br><em>"
+"Allowed minimum value %d &amp; maximum value %d by google street view.</em>"
 msgstr ""
 
 #: metaboxes.php:157
+msgid "Choose Your Desigre Angle"
+msgstr ""
+
+#: metaboxes.php:164
+msgid "Google Maps Marker Icon"
+msgstr ""
+
+#: metaboxes.php:167
+msgid "Marker Icon URL"
+msgstr ""
+
+#: metaboxes.php:168
 msgid "Google Maps Custom Marker Icon"
 msgstr ""
 
-#: metaboxes.php:159
+#: metaboxes.php:170
 msgid "Icon Url. Recommended 64x64PX PNG Image"
 msgstr ""
 
-#: metaboxes.php:165
+#: metaboxes.php:176
 msgid "Maps Style"
 msgstr ""
 
-#: metaboxes.php:175
+#: metaboxes.php:186
 msgid "Custom Maps Style for this map."
 msgstr ""
 
-#: metaboxes.php:176
+#: metaboxes.php:187
 msgid ""
-"Get Colorful Maps From <a href=\"https://snazzymaps.com/\">https://"
-"snazzymaps.com/</a><br>Or create a new style with <a href=\"http://gmaps-"
+"Get Colorful Maps From <a href=\"https://snazzymaps.com/\">https:"
+"//snazzymaps.com/</a><br>Or create a new style with <a href=\"http://gmaps-"
 "samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google "
-"Maps API Styled Map Wizard</a><br>Copy and paste the <strong><em>JSON Data</"
-"em></strong> into above  textarea."
+"Maps API Styled Map Wizard</a><br>Copy and paste the <strong><em>JSON "
+"Data</em></strong> into above  textarea."
 msgstr ""
 
-#: metaboxes.php:182
+#: metaboxes.php:193
 msgid "Custom CSS"
 msgstr ""
 
-#: metaboxes.php:191
+#: metaboxes.php:202
 msgid "Custom CSS for this map."
 msgstr ""
 
-#: metaboxes.php:192
+#: metaboxes.php:203
 msgid "Available CSS Class Selectors are:"
 msgstr ""
 
-#: sp_google_maps.php:38
+#: sp_google_maps.php:53
 msgid "Support"
 msgstr ""
 
-#: sp_google_maps.php:39
+#: sp_google_maps.php:54
 msgid "Facebook"
 msgstr ""
 
-#: sp_google_maps.php:40
+#: sp_google_maps.php:55
 msgid "Google Plus"
 msgstr ""
 
-#: sp_google_maps.php:46
+#: sp_google_maps.php:66
 msgid "View Maps"
 msgstr ""
 
-#: sp_google_maps.php:47
+#: sp_google_maps.php:67
 msgid "Settings"
 msgstr ""
 
-#: sp_google_maps.php:54
+#: sp_google_maps.php:74
 msgctxt "Post Type General Name"
 msgid "SP Google Maps"
 msgstr ""
 
-#: sp_google_maps.php:55
+#: sp_google_maps.php:75
 msgctxt "Post Type Singular Name"
 msgid "SP Google Maps"
 msgstr ""
 
 #. #-#-#-#-#  sp_google_maps.pot (SP Google Maps 1.1.5)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
-#: sp_google_maps.php:56 sp_google_maps.php:57 sp_google_maps.php:71
+#: sp_google_maps.php:76 sp_google_maps.php:77 sp_google_maps.php:91
 msgid "SP Google Maps"
 msgstr ""
 
-#: sp_google_maps.php:58
+#: sp_google_maps.php:78
 msgid "Parent Item:"
 msgstr ""
 
-#: sp_google_maps.php:59
+#: sp_google_maps.php:79
 msgid "All Maps"
 msgstr ""
 
-#: sp_google_maps.php:60
+#: sp_google_maps.php:80
 msgid "Add New Map"
 msgstr ""
 
-#: sp_google_maps.php:61
+#: sp_google_maps.php:81
 msgid "Add New"
 msgstr ""
 
-#: sp_google_maps.php:62
+#: sp_google_maps.php:82
 msgid "New Map"
 msgstr ""
 
-#: sp_google_maps.php:63
+#: sp_google_maps.php:83
 msgid "Edit Map"
 msgstr ""
 
-#: sp_google_maps.php:64
+#: sp_google_maps.php:84
 msgid "Update Map"
 msgstr ""
 
-#: sp_google_maps.php:65
+#: sp_google_maps.php:85
 msgid "View Map"
 msgstr ""
 
-#: sp_google_maps.php:66
+#: sp_google_maps.php:86
 msgid "Search Map"
 msgstr ""
 
-#: sp_google_maps.php:67
+#: sp_google_maps.php:87
 msgid "Not found"
 msgstr ""
 
-#: sp_google_maps.php:68
+#: sp_google_maps.php:88
 msgid "Not found in Trash"
 msgstr ""
 
-#: sp_google_maps.php:72
+#: sp_google_maps.php:92
 msgid ""
 "A simple plugin that embed Google Maps and Google Maps Street View. With Geo "
 "Routing Functionality."
 msgstr ""
 
-#: sp_google_maps.php:175
-msgid "Map Not Found"
-msgstr ""
-
-#: sp_google_maps.php:238
+#: sp_google_maps.php:257
 msgid "Type Your Location"
 msgstr ""
 
-#: sp_google_maps.php:241
+#: sp_google_maps.php:259
 msgid "Your Browser Doesn't Support Location Service."
 msgstr ""
 
-#: sp_google_maps.php:242
+#: sp_google_maps.php:260
 msgid "Request Timeout. Please Reload Your Browser."
 msgstr ""
 
-#: sp_google_maps.php:243
+#: sp_google_maps.php:261
 msgid ""
 "Your Position is Unavailable.\n"
 "Please Activate Your GPS And Location Services And Reload The Page."
 msgstr ""
 
-#: sp_google_maps.php:244
+#: sp_google_maps.php:262
 msgid ""
 "Your Location Settings Is Blocked.\n"
 "Please Change Your Location Sharing Settings And Reload The Page."
 msgstr ""
 
-#: sp_google_maps.php:245
+#: sp_google_maps.php:263
 msgid ""
 "An Unknown Error Occurred.\n"
 "Please Try Again After Sometime."
 msgstr ""
 
-#: sp_google_maps.php:248
+#: sp_google_maps.php:265
 msgid "No route could be found between the origin and destination."
 msgstr ""
 
-#: sp_google_maps.php:249
+#: sp_google_maps.php:266
 msgid "This webpage is not allowed to use the directions service."
 msgstr ""
 
-#: sp_google_maps.php:250
+#: sp_google_maps.php:267
 msgid ""
 "The webpage has gone over the requests limit in too short a period of time."
 msgstr ""
 
-#: sp_google_maps.php:251
+#: sp_google_maps.php:268
 msgid ""
 "At least one of the origin, destination, or waypoints could not be geocoded."
 msgstr ""
 
-#: sp_google_maps.php:252
+#: sp_google_maps.php:269
 msgid "The Directions Request provided was invalid."
 msgstr ""
 
-#: sp_google_maps.php:253
+#: sp_google_maps.php:270
 msgid "There was an unknown error in your request. Request status is:"
 msgstr ""
 
-#: sp_google_maps.php:276
+#: sp_google_maps.php:293
 msgid "Show Car Route From Your Location"
 msgstr ""
 
-#: sp_google_maps.php:277
+#: sp_google_maps.php:294
 msgid "Show Walking Route"
 msgstr ""
 
-#: sp_google_maps.php:278
+#: sp_google_maps.php:295
 msgid "Show Public Transport Route"
-msgstr ""
-
-#. Plugin URI of the plugin/theme
-msgid "http://samepagenet.com"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -397,8 +388,12 @@ msgid ""
 "Google Maps Routeing Functionality."
 msgstr ""
 
-#. Author of the plugin/theme
-msgid "mhamudul_hk"
+#. URI of the plugin
+msgid "https://wordpress.org/plugins/sp-google-maps/"
+msgstr ""
+
+#. Author of the plugin
+msgid "SamePage Inc."
 msgstr ""
 
 #. Author URI of the plugin/theme

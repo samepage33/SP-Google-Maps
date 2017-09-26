@@ -1,38 +1,53 @@
 <?php
 /**
- * @package WordPress
- * @subpackage SP Google Maps
- * @version 1.1.5
+ * SP Google Maps
+ * 
+ * @package     PluginPackage
+ * @author      Kudratullah
+ * @copyright   2017 SamePage Inc.
+ * @license     GPL-2.0+
+ * @version     1.1.7
+ * 
+ * @wordpress-plugin
+ * Plugin Name: SP Google Maps
+ * Plugin URI: https://wordpress.org/plugins/sp-google-maps/
+ * Description: A simple plugin that embed Google Maps and Google Maps Street View. With Google Maps Routeing Functionality.
+ * Version: 1.1.6
+ * Author: SamePage Inc.
+ * Author URI: http://samepagenet.com/
+ * Text Domain: sp_google_maps
+ * Domain Path: /languages/
+ * License: GPLv2+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
-/*
-Plugin Name: SP Google Maps
-Plugin URI: http://samepagenet.com
-Description: A simple plugin that embed Google Maps and Google Maps Street View. With Google Maps Routeing Functionality.
-Version: 1.1.5
-Author: mhamudul_hk
-Author URI: http://samepagenet.com/
-License: GPLv2 or later
-Text Domain: sp_google_maps
-Domain Path: /languages/
-*/
 
 // Make sure we don't expose any info if called directly
 if ( !function_exists( 'add_action' ) ) {
 	echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
 	exit;
 }
-define('SPGMVersion', '1.1.5');
+define('SPGMVersion', '1.1.7');
 define("SPGMDir", plugin_dir_path( __FILE__ ));
 define("SPGMBase", plugin_basename(__FILE__));
-require_once(SPGMDir."admin.php");
-require_once(SPGMDir."metaboxes.php");
 if(!function_exists('spgm_i18n')){
 	add_action('plugins_loaded', 'SPGMi18n');
 	function SPGMi18n() {
 		load_plugin_textdomain( 'sp_google_maps', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
 	}
 }
+// include admin scripts only in wp-admin
+if( is_admin() ) {
+	require_once(SPGMDir."admin.php");
+	require_once(SPGMDir."metaboxes.php");
+}
+
 add_filter('plugin_row_meta',  'SPGMPluginsMetaLinks', 10, 2);
+/**
+ * Add support and social link to plugin meta 
+ * @param array $links
+ * @param string $file
+ * @return array
+ */
 function SPGMPluginsMetaLinks($links, $file) {
 	if ($file == SPGMBase) {
 		$links[] = '<a href="http://samepagenet.com/contact-us" target="_blank">' . __('Support', 'sp_google_maps') . '</a>';
@@ -42,6 +57,11 @@ function SPGMPluginsMetaLinks($links, $file) {
 	return $links;
 }
 add_filter('plugin_action_links_'.SPGMBase, 'RegisterPluginSettingsPage', 10, 1);
+/**
+ * Add plugin page links with other action links
+ * @param array $actions
+ * @return array
+ */
 function RegisterPluginSettingsPage($actions){
 	$actions['view_item'] = '<a href="' . admin_url( '/edit.php?post_type=sp_google_maps' ) . '">' . __('View Maps', 'sp_google_maps') . '</a>';
 	$actions['maps_settings'] = '<a href="' . admin_url( '/edit.php?post_type=sp_google_maps&page=maps-settings' ) . '">' . __('Settings', 'sp_google_maps') . '</a>';
@@ -88,18 +108,21 @@ function sp_google_maps() {
 		'capability_type'     => 'page',
 	);
 	register_post_type( 'sp_google_maps', $args );
-
 }
-
 // Hook into the 'init' action
 add_action( 'init', 'sp_google_maps', 10 );
 
 //add custom admin css
-
-function load_custom_wp_admin_style_script() {
+add_action( 'admin_enqueue_scripts', 'spgm_admin_scripts' );
+/**
+ * Include admin styles and javascripts
+ * @return void
+ */
+function spgm_admin_scripts() {
 	
 	global $post_type;
 	global $post;
+	$scriptPrefix = ( defined('WP_DEBUG') && WP_DEBUG )? "" : ".min";
 	if(($post_type == 'sp_google_maps') || (isset($_GET['page']) && $_GET['page'] == "maps-settings")){
 		$mapdata = array();
 		if($post instanceof WP_Post){
@@ -119,8 +142,6 @@ function load_custom_wp_admin_style_script() {
 			$maps_pov = explode(",",$maps_pov);
 			$heading = $maps_pov[0];
 			$pitch = $maps_pov[1];
-			
-			
 			$mapdata = array(
 					'maps_lat' => $lat,
 					'maps_lng' => $lng,
@@ -131,19 +152,18 @@ function load_custom_wp_admin_style_script() {
 					'heading' => $heading,
 					'pitch' => $pitch
 			);
-			
 			$settings = get_option("spgmSettings");
-			if(empty($settings['apiKey'])){
-				wp_register_script( 'Google-Maps', "//maps.googleapis.com/maps/api/js?v=3.exp", false, null);
-			}else{
-				wp_register_script( 'Google-Maps', "//maps.googleapis.com/maps/api/js?v=3.exp&key=".$settings['apiKey'], false, null);
-			}
 			
-			if(defined('WP_DEBUG') && WP_DEBUG){
-				wp_register_script( 'AdminMapScript', plugins_url('/js/admin.js', __FILE__), array('jquery','Google-Maps'), '1.0.0', true);
-			}else{
-				wp_register_script( 'AdminMapScript', plugins_url('/js/admin.min.js', __FILE__), array('jquery','Google-Maps'), '1.0.0', true);
-			}
+			$GoogleMapsSRC = "https://maps.googleapis.com/maps/api/js";
+			$GoogleMapsQuery = array();
+			if( ! empty( $settings['apiKey'] ) ) $GoogleMapsQuery["key"] = $settings['apiKey'];
+			$GoogleMapsQuery["libraries"] = "geometry";
+			$GoogleMapsQuery["language"] = substr(get_bloginfo ( 'language' ), 0, 2);
+			$GoogleMapsQuery = http_build_query( apply_filters( "googlemapsapi_params", $GoogleMapsQuery ) );
+			$GoogleMapsSRC .= ( !empty( $GoogleMapsQuery ) ) ? "?".$GoogleMapsQuery : "";
+			
+			wp_register_script( 'Google-Maps', $GoogleMapsSRC, false, null);
+			wp_register_script( 'AdminMapScript', plugins_url( "/js/admin{$scriptPrefix}.js", __FILE__ ), array('jquery','Google-Maps'), SPGMVersion, true );
 			
 			// Localize the script with new data
 			wp_localize_script( 'Google-Maps', 'mapdata', $mapdata );
@@ -153,12 +173,10 @@ function load_custom_wp_admin_style_script() {
 			wp_enqueue_script('AdminMapScript');
 		}
 		
-		wp_register_style( 'Admin-CSS', plugins_url('/css/admin.css', __FILE__), false, '1.0.0' );
-		
+		wp_register_style( 'Admin-CSS', plugins_url( "/css/admin{$scriptPrefix}.css", __FILE__ ), false, SPGMVersion );
 		wp_enqueue_style( 'Admin-CSS' );
 	}
 }
-add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style_script' );
 
 // Adding Map Shortcode
 function sp_google_maps_shortcode( $atts ) {
@@ -174,6 +192,7 @@ function sp_google_maps_shortcode( $atts ) {
 	if(!$id || empty($id) || !is_object(get_post($id))){
 		return __("Map Not Found");
 	}else{
+		$scriptPrefix = ( defined('WP_DEBUG') && WP_DEBUG )? "" : ".min";
 		$settings = get_option("spgmSettings"); 
 		$map = get_post($id);
 		
@@ -181,7 +200,7 @@ function sp_google_maps_shortcode( $atts ) {
 		
 		
 		$map_title = $values['maps-title'][0];
-		$map_description = $map->post_content;
+		$map_description = apply_filters('the_content',$map->post_content);
 		
 		$maps_latlng = $values['maps-latlng'][0];
 		$latlng = explode(",",$maps_latlng);
@@ -204,21 +223,21 @@ function sp_google_maps_shortcode( $atts ) {
 		$maps_css = (empty( $values['maps-css'][0] )) ? '' : $values['maps-css'][0];
 		//maps mouse wheel scroll settings
 		$maps_mwscroll = ($values['maps-mwscroll'][0] == '0')? 'false':'true';
+		
 		//add script and style
-		wp_register_style( 'SP-Google-Maps-Style', plugins_url('/css/sp_google_maps.css', __FILE__), false, '1.0.0' );
-		if(empty($settings['apiKey'])){
-			wp_register_script( 'Google-Maps', "//maps.googleapis.com/maps/api/js?v=3.exp", false, null);
-		}else{
-			wp_register_script( 'Google-Maps', "//maps.googleapis.com/maps/api/js?v=3.exp&key=".$settings['apiKey'], false, null);
-		}
-		if(defined('WP_DEBUG') && WP_DEBUG){
-			wp_register_script( 'SP-Google-Maps-Script', plugins_url('/js/sp_google_maps.js', __FILE__), array('Google-Maps','jquery'), '1.0.0', true);
-		}else{
-			wp_register_script( 'SP-Google-Maps-Script', plugins_url('/js/sp_google_maps.min.js', __FILE__), array('Google-Maps','jquery'), '1.0.0', true);
-		}
+		$GoogleMapsSRC = "https://maps.googleapis.com/maps/api/js";
+		$GoogleMapsQuery = array();
+		if( ! empty( $settings['apiKey'] ) ) $GoogleMapsQuery["key"] = $settings['apiKey'];
+		$GoogleMapsQuery["libraries"] = "geometry";
+		$GoogleMapsQuery["language"] = substr(get_bloginfo ( 'language' ), 0, 2);
+		$GoogleMapsQuery = http_build_query( apply_filters( "googlemapsapi_params", $GoogleMapsQuery ) );
+		$GoogleMapsSRC .= ( !empty( $GoogleMapsQuery ) ) ? "?".$GoogleMapsQuery : "";
+		
+		wp_register_style( 'SP-Google-Maps-Style', plugins_url( "/css/sp_google_maps{$scriptPrefix}.css", __FILE__ ), false, SPGMVersion );
+		wp_register_script( 'Google-Maps', $GoogleMapsSRC, false, null);
+		wp_register_script( 'SP-Google-Maps-Script', plugins_url( "/js/sp_google_maps{$scriptPrefix}.js", __FILE__ ), array( 'Google-Maps', 'jquery' ), SPGMVersion, true);
 		
 		// Localize the script with new data
-		
 		$mapdata = array(
 				'mapid' => $id,
 				'lat' => $lat,
@@ -236,7 +255,6 @@ function sp_google_maps_shortcode( $atts ) {
 				'messages' => array(
 						/*General messages*/
 						'client_location_request' => __('Type Your Location', 'sp_google_maps'),
-						
 						/*geo location api response messages*/
 						'geo_not_supported' => __("Your Browser Doesn't Support Location Service.", 'sp_google_maps'),
 						'geo_timeout' => __("Request Timeout. Please Reload Your Browser.",'sp_google_maps'),
@@ -244,19 +262,18 @@ function sp_google_maps_shortcode( $atts ) {
 						'geo_permission_denied' => __("Your Location Settings Is Blocked.\nPlease Change Your Location Sharing Settings And Reload The Page.",'sp_google_maps'),
 						'geo_unknown_error' => __("An Unknown Error Occurred.\nPlease Try Again After Sometime.",'sp_google_maps'),
 						/*google maps api response messages*/
-						
 						'g_zero_results' => __('No route could be found between the origin and destination.','sp_google_maps'),
 						'g_request_denied' => __('This webpage is not allowed to use the directions service.','sp_google_maps'),
 						'g_over_query_limit' => __('The webpage has gone over the requests limit in too short a period of time.','sp_google_maps'),
 						'g_not_found' => __('At least one of the origin, destination, or waypoints could not be geocoded.','sp_google_maps'),
 						'g_invalid_request' => __('The Directions Request provided was invalid.','sp_google_maps'),
 						'g_no_status_found' => __('There was an unknown error in your request. Request status is:','sp_google_maps'),
-				)
+				),
 		);
+		
 		if(!empty($maps_style))
 			$mapdata['style'] = $maps_style;
 		wp_localize_script( 'Google-Maps', 'mapdata', $mapdata );
-		
 		wp_enqueue_style( 'SP-Google-Maps-Style' );
 		wp_add_inline_style( 'SP-Google-Maps-Style', $maps_css );
 		wp_enqueue_script('jquery');
@@ -275,7 +292,7 @@ function sp_google_maps_shortcode( $atts ) {
 				){
 			$output .= '<a href="#" class="travelMode" data-travelMode="DRIVING">'. __('Show Car Route From Your Location', 'sp_google_maps') .'</a><br>';
 			$output .= '<a href="#" class="travelMode" data-travelMode="WALKING">'. __('Show Walking Route', 'sp_google_maps') .'</a><br>';
-			$output .= '<a href="#" class="travelMode" data-travelMode="TRANSIT">'. __('Show Public Transport Route', 'sp_google_maps') .'</a>';
+			$output .= '<a href="#" class="travelMode" data-travelMode="TRANSIT" target="_blank">'. __('Show Public Transport Route', 'sp_google_maps') .'</a>';
 		}
 			$output .= '</div>';
 		$output .= '</div>';

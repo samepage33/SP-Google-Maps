@@ -1,9 +1,23 @@
 <?php
 /**
  * SP Google Maps Admin Panel
- * @since SP Google Maps 1.1.5
+ * @package     SP Google Maps
+ * @author      Kudratullah
+ * @version     1.0.1
+ * @since       SP Google Maps 1.1.5
+ * @copyright   2017 SamePage Inc.
+ * @license     GPL-2.0+ 
  */
+if ( !function_exists( 'add_action' ) ) {
+	echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
+	exit;
+}
 add_action('admin_menu', 'spGMSettings');
+/**
+ * Add setting page for plugin
+ * @return void
+ * @since 1.1.5
+ */
 function spGMSettings() {
 	$parent_slug = 'edit.php?post_type=sp_google_maps';
 	$page_title = __("SP Google Maps Settings", "sp_google_maps");
@@ -13,11 +27,22 @@ function spGMSettings() {
 	add_submenu_page($parent_slug, $page_title, $menu_title, $capability, $menu_slug, 'spGMSettings_callback');
 	add_action( 'admin_init', 'spGM_RegINIT' );
 }
+/**
+ * Register Plugin Options in wp-options
+ * @return void
+ * @since 1.1.5
+ */
 function spGM_RegINIT() {
 	register_setting( 'spgmSettingsFields', 'spgmSettings' );
 }
+/**
+ * Render Plugin Settings Page in WP-Admin.
+ * callback for spGMSettings()
+ * @return void
+ * @since 1.1.5
+ */
 function spGMSettings_callback() {
-	?>
+?>
 	<div class="wrap spgm_settings">
 		<h2><?php _e("Default Settings For SP Google Maps", "sp_google_maps"); ?></h2>
 		<form method="post" action="options.php">
@@ -29,13 +54,10 @@ function spGMSettings_callback() {
 		?>
 		    <table class="form-table">
 		    	<tr valign="top">
-		        	<th scope="row">
-		        		<label for="apiKey"><?php _e("API Key", "sp_google_maps"); ?></label>
-		        	</th>
+		        	<th scope="row"><label for="apiKey"><?php _e("API Key", "sp_google_maps"); ?></label></th>
 		        	<td>
-		        		<input type="text" name="spgmSettings[apiKey]" value="<?php echo (isset($settings["apiKey"]))? $settings["apiKey"]:""; ?>" id="apiKey" class="regular-text" placeholder="<?php _e("API Key", "sp_google_maps"); ?>"/>
-		        		<div class="cf"></div>
-		        		<code class="description"><?php _e("API Key From Google API Console (Optional).", "sp_google_maps"); ?></code>
+		        		<input type="text" name="spgmSettings[apiKey]" value="<?php echo (isset($settings["apiKey"]))? $settings["apiKey"]:""; ?>" id="apiKey" class="regular-text" placeholder="<?php _e("API Key", "sp_google_maps"); ?>" required>
+		        		<code><a href="https://console.developers.google.com/" target="_blank"><?php _e("Google API Console", "sp_google_maps"); ?></a></code>
 		        	</td>
 		        </tr>
 		        <tr valign="top">
@@ -60,7 +82,7 @@ function spGMSettings_callback() {
 		        <tr valign="top">
 		        	<th scope="row"><label for="MapsStyleJson"><?php _e("Default Style", "sp_google_maps"); ?></label></th>
 		        	<td>
-		        		<textarea type="text" name="spgmSettings[MapsStyleJson]" id="MapsStyleJson" rows="8" cols="46" placeholder='[{
+		        		<textarea name="spgmSettings[MapsStyleJson]" class="widefat" id="MapsStyleJson" rows="8" cols="46" placeholder='[{
 "featureType": "water",
 "stylers": [{
 	"color": "#19a0d8"
@@ -76,4 +98,6 @@ function spGMSettings_callback() {
 			<?php submit_button(); ?>
 		</form>
 	</div>
-<?php }
+<?php
+}
+// End of file admin.php

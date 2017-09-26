@@ -1,339 +1,374 @@
-# Copyright (C) 2015 SP Google Maps
-# This file is distributed under the same license as the SP Google Maps package.
 msgid ""
 msgstr ""
 "Project-Id-Version: SP Google Maps 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/sp-google-maps\n"
-"POT-Creation-Date: 2016-04-27 12:25+0600\n"
-"PO-Revision-Date: 2016-04-27 12:43+0600\n"
-"Last-Translator: Kudratullah <mhamuduk.hk@gmail.com>\n"
-"Language-Team: SamePage <md@samepagenet.com>\n"
-"Language: bn\n"
+"POT-Creation-Date: 2017-09-26 13:55+0000\n"
+"PO-Revision-Date: 2017-09-26 16:58+0000\n"
+"Last-Translator: Kudratullah <mhamudul_hk@live.com>\n"
+"Language-Team: Bengali\n"
+"Language: bn-BD\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.5\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"Plural-Forms: nplurals=2; plural=n != 1"
 
-#: admin.php:9
-msgid "SP Google Maps Settings"
-msgstr "SP Google Maps এর সেটিংস"
-
-#: admin.php:10
-msgid "Maps Settings"
-msgstr "সেটিংস"
-
-#: admin.php:22
-msgid "Default Settings For SP Google Maps"
-msgstr "SP Google Maps এর ডিফল্ট সেটিংস"
-
-#: admin.php:33 admin.php:36
-msgid "API Key"
-msgstr "এপিআই কী"
-
-#: admin.php:38
-msgid "API Key From Google API Console (Optional)."
-msgstr "গুগল এপিআই কন্সোল থেকে প্রাপ্ত এপিআই কী (বাধ্যতামূলক নয়)।"
-
-#: admin.php:42
-msgid "Route Calculator"
-msgstr "রুট ক্যালকুলেটর"
-
-#: admin.php:45
-msgid "Show Route Calculator in Mobile"
-msgstr "মোবাই্লে রুট ক্যালকুলেটর দেখান।"
-
-#: admin.php:48
-msgid "Show Route Calculator in Desktop"
-msgstr "ডেস্কটপে  রুট ক্যালকুলেটর দেখান।"
-
-#: admin.php:51
-msgid "Show Route Calculator in Both Mobile And Desktop"
-msgstr "ডেস্কটপ ও মোবাইলে  রুট ক্যালকুলেটর দেখান।"
-
-#: admin.php:54
-msgid "Don't Show"
-msgstr " রুট ক্যালকুলেটর বন্ধ।"
-
-#: admin.php:57
-msgid ""
-"Caution: Desktop's sometime (without GPS module) show wrong location (with Geolocation API) for the user because of IP "
-"address, proxy server etc."
-msgstr "সতর্কতাঃ সকল ডেস্কটপে জিপিএস থাকেনা এবং আইপি অ্যাড্রেস বা প্রক্সি সার্ভারের কারণে ডেস্কটপে ভুল অবস্থান দেখাতে পারে।"
-
-#: admin.php:61
-msgid "Default Style"
-msgstr "ডিফল্ট স্টাইল"
-
-#: admin.php:70
-msgid "This style will be applied to all maps unless that map have a style of it's own."
-msgstr " যদি কোন ম্যাপে কাস্টমাইজ স্টাইল না দেওয়া হয় তবে এই স্টাইল ঐসকল ম্যাপে প্রয়োগ করা হবে।"
-
-#: admin.php:72
-msgid ""
-"Get Colorful Maps From <a href=\"https://snazzymaps.com/\">https://snazzymaps.com/</a><br>Or create a new style with <a "
-"href=\"http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google Maps API Styled Map "
-"Wizard</a><br>Copy and paste the <strong><em>JSON Data</em></strong> into avobe textarea."
+#: admin.php:60
+msgid "Google API Console"
 msgstr ""
-"আপনার  ম্যাপের জন্যে <a href=\"https://snazzymaps.com/\">snazzymaps.com</a> থেকে রঙিন স্ট্যাইল খুজে বের করেন; আথবা <a href="
-"\"http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google Maps API Styled Map Wizard</a> "
-"থেকে পছন্দ মত স্ট্যাইল বানিয়েনেন।<br>পছন্দ মত স্ট্যাইলটির <strong><em>JSON</em></strong> কোড উপরের <code>textarea</code>তে "
-"কপি-পেস্ট করে সেভ করেন।"
 
-#: metaboxes.php:12
-msgid "Google Maps ShortCode"
-msgstr "গুগল ম্যপস্‌ শর্টকোড"
-
-#: metaboxes.php:20
-msgid "ShortCode For This Map"
-msgstr "এই মানচিত্রটির শর্টকোড"
-
-#: metaboxes.php:26
-msgid "Copy and Paste This ShortCode To Use This Map"
-msgstr "এই মানচিত্র টি ব্যবহারের জন্যে শর্টকোডটি কপি করে পেস্ট করুন।"
-
-#: metaboxes.php:28
-msgid "ShortCode will apear after first save."
-msgstr "প্রথমবার সেভ করার পর শর্টকোড দেখা যাবে।"
-
-#: metaboxes.php:36
-msgid "Google Maps Settings"
-msgstr "গুগল ম্যাপস্‌ সেটিংস"
-
-#: metaboxes.php:62 metaboxes.php:65
-msgid "Google Maps Marker Title"
-msgstr "গুগল মানচিত্র মার্কারের শিরোনাম"
-
-#: metaboxes.php:67
-msgid "This title will show under mouse cursor when visitor mouse hover the map marker icon"
-msgstr "এই টাইটেলতি ম্যাপের মার্কার আইকন এর উপরে মাউস রাখলে দেখাবে।"
-
-#: metaboxes.php:73
-msgid "Mouse Wheel Scroll Settings:"
-msgstr "মাউস হুইল স্ক্রল সেটিংস:"
-
-#: metaboxes.php:80
-msgid "Disable"
-msgstr "নিস্ক্রিয়"
-
-#: metaboxes.php:86
-msgid "Enable"
-msgstr "সক্রিয়"
-
-#: metaboxes.php:88
-msgid "Enable or Disable Mouse Wheel Scroll On Google Maps And Google Maps Street View.<br>Disabled By Default"
-msgstr "মাউস হুইল স্ক্রল সেটিংস সক্রিয় বা নিস্ক্রিয় করেন। <br>সাধারণ ভাবে নিস্ক্রিয় থাকবে।"
-
-#: metaboxes.php:94
-msgid "Google Maps Latitude Longitude:"
-msgstr "গুগল মানচিত্র এর অক্ষাংশ ও দ্রাঘিমাংশঃ "
-
-#: metaboxes.php:99
-msgid "Input Latitude &amp; Longitude Separated By Comma. Or Choose Your Location From from the map below. eg. lat,lon."
-msgstr ""
-"কমা সেপারেটেড ফরমেটে  অক্ষাংশ ও দ্রাঘিমাংশ দিতে হবে অথবা নিচের মানচিত্র থেকে আপনার অবস্থান বেছেনিন। অক্ষাংশ ও দ্রাঘিমাংশ "
-"স্বয়ংক্রিয় ভাবে নেওয়া হবে।  যেমনঃlat,lon"
-
-#: metaboxes.php:103
-msgid "Google Maps Zoom Level:"
-msgstr "গুগল ম্যাপস্‌ জুম্ লেভেলঃ"
-
-#: metaboxes.php:108
-msgid ""
-"Input into the text box above or change from the map preview.<br><em>Allowed minimum value %d &amp; maximum value %d by "
-"google maps.</em>"
-msgstr ""
-"উপরের বক্স অথবা নিচের মানচিত্র থেকে জুম্‌ পরিবর্তন করেন।<br><em>গুগল ম্যাপস্‌ থেকে অনুমোদিত সর্বনিম্ন মান %d এবং সর্বোচ্চ মান %d।</em>"
-
-#: metaboxes.php:112
-msgid "Choose Your Location By Dragging The Marker"
-msgstr "মানচিত্রের মার্কার আইকনটি টেনে আপনার বেছে নিন চিহ্নিত করুন।"
-
-#: metaboxes.php:119
-msgid "Street View Angle:"
-msgstr "স্ট্রিট ভিউ অ্যাঙ্গেলঃ"
-
-#: metaboxes.php:124
-msgid ""
-"Separated By Comma. Set Heading &amp; Pitch, eg. heading,pitch. Or use the Street Map Preview to set Point-of-View."
-msgstr ""
-"কমা দ্বারা বিভক্ত করে স্ট্রিট ভিউ এর অ্যাঙ্গেলের Heading এবং Pitch লিখুন, অথবা স্ট্রিট ভিউ মানচিত্র থেকে সেট করুন। যেমনঃ heading,"
-"pitch"
-
-#: metaboxes.php:128
-msgid "Street View Latitude Longitude:"
-msgstr "স্ট্রিট ভিউ এর অক্ষাংশ ও দ্রাঘিমাংশঃ "
-
-#: metaboxes.php:133
-msgid ""
-"Input Latitude &amp; Longitude Separated By Comma. Or Change The View, Latitude and Longitude will be automatically "
-"calculated. eg. lat,lon."
-msgstr ""
-"কমা সেপারেটেড ফরমেটে  অক্ষাংশ ও দ্রাঘিমাংশ দিতে হবে অথবা নিচের মানচিত্র থেকে আপনার অবস্থান বেছেনিন। অক্ষাংশ ও দ্রাঘিমাংশ "
-"স্বয়ংক্রিয় ভাবে নেওয়া হবে।  যেমনঃlat,lon"
-
-#: metaboxes.php:137
-msgid "Street View Zoom Level:"
-msgstr "স্ট্রিট ভিউ জুম্ লেভেলঃ"
-
-#: metaboxes.php:142
-msgid ""
-"Input into the text box above  or change from the map preview.<br><em>Allowed minimum value %d &amp; maximum value %d "
-"by google street view.</em>"
-msgstr ""
-"উপরের বক্স অথবা নিচের মানচিত্র থেকে জুম্‌ পরিবর্তন করেন।<br><em>গুগল ম্যাপস্‌ থেকে অনুমোদিত সর্বনিম্ন মান %d এবং সর্বোচ্চ মান %d।</em>"
-
-#: metaboxes.php:146
-msgid "Choose Your Desigre Angle"
-msgstr "আপনার সুবিধা জনক অ্যাঙ্গেল নির্বাচন করুন"
-
-#: metaboxes.php:153
-msgid "Google Maps Marker Icon"
-msgstr "গুগল মানচিত্র মার্কারের আইকন"
-
-#: metaboxes.php:156
-msgid "Marker Icon URL"
-msgstr "মার্কার আইকন এর URL"
-
-#: metaboxes.php:157
-msgid "Google Maps Custom Marker Icon"
-msgstr "গুগল মানচিত্র মার্কারের জন্যে পরিবর্তিত আইকন"
-
-#: metaboxes.php:159
-msgid "Icon Url. Recommended 64x64PX PNG Image"
-msgstr "আইকন URL, ৬৪x৬৪ পিক্সেল আকারের .png আইকন হলে ভাল হয়।"
-
-#: metaboxes.php:165
-msgid "Maps Style"
-msgstr "মানচিত্রের স্টাইল"
-
-#: metaboxes.php:175
-msgid "Custom Maps Style for this map."
-msgstr "এই মানচিত্র জন্য কাস্টম স্টাইল।"
-
-#: metaboxes.php:176
-msgid ""
-"Get Colorful Maps From <a href=\"https://snazzymaps.com/\">https://snazzymaps.com/</a><br>Or create a new style with <a "
-"href=\"http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google Maps API Styled Map "
-"Wizard</a><br>Copy and paste the <strong><em>JSON Data</em></strong> into above  textarea."
-msgstr ""
-"আপনার  ম্যাপের জন্যে <a href=\"https://snazzymaps.com/\">snazzymaps.com</a> থেকে রঙিন স্ট্যাইল খুজে বের করেন; আথবা <a href="
-"\"http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google Maps API Styled Map Wizard</a> "
-"থেকে পছন্দ মত স্ট্যাইল বানিয়েনেন।<br>পছন্দ মত স্ট্যাইলটির <strong><em>JSON</em></strong> কোড উপরের <code>textarea</code>তে "
-"কপি-পেস্ট করে সেভ করেন।"
-
-#: metaboxes.php:182
-msgid "Custom CSS"
-msgstr "কাস্টম CSS"
-
-#: metaboxes.php:191
-msgid "Custom CSS for this map."
-msgstr "এই মানচিত্র জন্য কাস্টম CSS."
-
-#: metaboxes.php:192
-msgid "Available CSS Class Selectors are:"
-msgstr "উপলভ্য সিএসএস ক্লাস সিলেক্টর আছে:"
-
-#: sp_google_maps.php:38
-msgid "Support"
-msgstr "সহায়তা"
-
-#: sp_google_maps.php:39
-msgid "Facebook"
-msgstr "ফেসবুক"
-
-#: sp_google_maps.php:40
-msgid "Google Plus"
-msgstr "গুগল প্লাস"
-
-#: sp_google_maps.php:46
-msgid "View Maps"
-msgstr "মানচিত্র দেখুন"
-
-#: sp_google_maps.php:47
-msgid "Settings"
-msgstr "সেটিংস"
-
-#: sp_google_maps.php:54
+#: sp_google_maps.php:74
 msgctxt "Post Type General Name"
 msgid "SP Google Maps"
 msgstr ""
 
-#: sp_google_maps.php:55
+#: sp_google_maps.php:75
 msgctxt "Post Type Singular Name"
 msgid "SP Google Maps"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: sp_google_maps.php:56 sp_google_maps.php:57 sp_google_maps.php:71
+#: sp_google_maps.php:76 sp_google_maps.php:77 sp_google_maps.php:91
 msgid "SP Google Maps"
 msgstr ""
 
-#: sp_google_maps.php:58
+#. URI of the plugin
+msgid "https://wordpress.org/plugins/sp-google-maps/"
+msgstr ""
+
+#. Author of the plugin
+msgid "SamePage Inc."
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://samepagenet.com/"
+msgstr ""
+
+#: admin.php:23
+msgid "SP Google Maps Settings"
+msgstr "SP Google Maps এর সেটিংস"
+
+#: admin.php:24
+msgid "Maps Settings"
+msgstr "সেটিংস"
+
+#: admin.php:47
+msgid "Default Settings For SP Google Maps"
+msgstr "SP Google Maps এর ডিফল্ট সেটিংস"
+
+#: admin.php:57 admin.php:59
+msgid "API Key"
+msgstr "এপিআই কী"
+
+#: admin.php:64
+msgid "Route Calculator"
+msgstr "রুট ক্যালকুলেটর"
+
+#: admin.php:67
+msgid "Show Route Calculator in Mobile"
+msgstr "মোবাই্লে রুট ক্যালকুলেটর দেখান।"
+
+#: admin.php:70
+msgid "Show Route Calculator in Desktop"
+msgstr "ডেস্কটপে  রুট ক্যালকুলেটর দেখান।"
+
+#: admin.php:73
+msgid "Show Route Calculator in Both Mobile And Desktop"
+msgstr "ডেস্কটপ ও মোবাইলে  রুট ক্যালকুলেটর দেখান।"
+
+#: admin.php:76
+msgid "Don't Show"
+msgstr " রুট ক্যালকুলেটর বন্ধ।"
+
+#: admin.php:79
+msgid ""
+"Caution: Desktop's sometime (without GPS module) show wrong location (with "
+"Geolocation API) for the user because of IP address, proxy server etc."
+msgstr ""
+"সতর্কতাঃ সকল ডেস্কটপে জিপিএস থাকেনা এবং আইপি অ্যাড্রেস বা প্রক্সি সার্ভারের "
+"কারণে ডেস্কটপে ভুল অবস্থান দেখাতে পারে।"
+
+#: admin.php:83
+msgid "Default Style"
+msgstr "ডিফল্ট স্টাইল"
+
+#: admin.php:92
+msgid ""
+"This style will be applied to all maps unless that map have a style of it's "
+"own."
+msgstr ""
+" যদি কোন ম্যাপে কাস্টমাইজ স্টাইল না দেওয়া হয় তবে এই স্টাইল ঐসকল ম্যাপে "
+"প্রয়োগ করা হবে।"
+
+#: admin.php:94
+msgid ""
+"Get Colorful Maps From <a href=\"https://snazzymaps.com/\">https:"
+"//snazzymaps.com/</a><br>Or create a new style with <a href=\"http://gmaps-"
+"samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google "
+"Maps API Styled Map Wizard</a><br>Copy and paste the <strong><em>JSON "
+"Data</em></strong> into avobe textarea."
+msgstr ""
+"আপনার  ম্যাপের জন্যে <a href=\"https://snazzymaps.com/\">snazzymaps.com</a> "
+"থেকে রঙিন স্ট্যাইল খুজে বের করেন; আথবা <a href=\"http://gmaps-samples-v3."
+"googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google Maps API "
+"Styled Map Wizard</a> থেকে পছন্দ মত স্ট্যাইল বানিয়েনেন।<br>পছন্দ মত "
+"স্ট্যাইলটির <strong><em>JSON</em></strong> কোড উপরের <code>textarea</code>তে "
+"কপি-পেস্ট করে সেভ করেন।"
+
+#: metaboxes.php:23
+msgid "Google Maps ShortCode"
+msgstr "গুগল ম্যপস্‌ শর্টকোড"
+
+#: metaboxes.php:31
+msgid "ShortCode For This Map"
+msgstr "এই মানচিত্রটির শর্টকোড"
+
+#: metaboxes.php:37
+msgid "Copy and Paste This ShortCode To Use This Map"
+msgstr "এই মানচিত্র টি ব্যবহারের জন্যে শর্টকোডটি কপি করে পেস্ট করুন।"
+
+#: metaboxes.php:39
+msgid "ShortCode will apear after first save."
+msgstr "প্রথমবার সেভ করার পর শর্টকোড দেখা যাবে।"
+
+#: metaboxes.php:73 metaboxes.php:76
+msgid "Google Maps Marker Title"
+msgstr "গুগল মানচিত্র মার্কারের শিরোনাম"
+
+#: metaboxes.php:78
+msgid ""
+"This title will show under mouse cursor when visitor mouse hover the map "
+"marker icon"
+msgstr "এই টাইটেলতি ম্যাপের মার্কার আইকন এর উপরে মাউস রাখলে দেখাবে।"
+
+#: metaboxes.php:84
+msgid "Mouse Wheel Scroll Settings:"
+msgstr "মাউস হুইল স্ক্রল সেটিংস:"
+
+#: metaboxes.php:91
+msgid "Disable"
+msgstr "নিস্ক্রিয়"
+
+#: metaboxes.php:97
+msgid "Enable"
+msgstr "সক্রিয়"
+
+#: metaboxes.php:99
+msgid ""
+"Enable or Disable Mouse Wheel Scroll On Google Maps And Google Maps Street "
+"View.<br>Disabled By Default"
+msgstr ""
+"মাউস হুইল স্ক্রল সেটিংস সক্রিয় বা নিস্ক্রিয় করেন। <br>সাধারণ ভাবে নিস্ক্রিয় "
+"থাকবে।"
+
+#: metaboxes.php:105
+msgid "Google Maps Latitude Longitude:"
+msgstr "গুগল মানচিত্র এর অক্ষাংশ ও দ্রাঘিমাংশঃ "
+
+#: metaboxes.php:110
+msgid ""
+"Input Latitude &amp; Longitude Separated By Comma. Or Choose Your Location "
+"From from the map below. eg. lat,lon."
+msgstr ""
+"কমা সেপারেটেড ফরমেটে  অক্ষাংশ ও দ্রাঘিমাংশ দিতে হবে অথবা নিচের মানচিত্র থেকে "
+"আপনার অবস্থান বেছেনিন। অক্ষাংশ ও দ্রাঘিমাংশ স্বয়ংক্রিয় ভাবে নেওয়া হবে।  "
+"যেমনঃlat,lon"
+
+#: metaboxes.php:114
+msgid "Google Maps Zoom Level:"
+msgstr "গুগল ম্যাপস্‌ জুম্ লেভেলঃ"
+
+#: metaboxes.php:119
+#, php-format
+msgid ""
+"Input into the text box above or change from the map preview.<br><em>Allowed "
+"minimum value %d &amp; maximum value %d by google maps.</em>"
+msgstr ""
+"উপরের বক্স অথবা নিচের মানচিত্র থেকে জুম্‌ পরিবর্তন করেন।<br><em>গুগল "
+"ম্যাপস্‌ থেকে অনুমোদিত সর্বনিম্ন মান %d এবং সর্বোচ্চ মান %d।</em>"
+
+#: metaboxes.php:123
+msgid "Choose Your Location By Dragging The Marker"
+msgstr "মানচিত্রের মার্কার আইকনটি টেনে আপনার বেছে নিন চিহ্নিত করুন।"
+
+#: metaboxes.php:130
+msgid "Street View Angle:"
+msgstr "স্ট্রিট ভিউ অ্যাঙ্গেলঃ"
+
+#: metaboxes.php:135
+msgid ""
+"Separated By Comma. Set Heading &amp; Pitch, eg. heading,pitch. Or use the "
+"Street Map Preview to set Point-of-View."
+msgstr ""
+"কমা দ্বারা বিভক্ত করে স্ট্রিট ভিউ এর অ্যাঙ্গেলের Heading এবং Pitch লিখুন, "
+"অথবা স্ট্রিট ভিউ মানচিত্র থেকে সেট করুন। যেমনঃ heading,pitch"
+
+#: metaboxes.php:139
+msgid "Street View Latitude Longitude:"
+msgstr "স্ট্রিট ভিউ এর অক্ষাংশ ও দ্রাঘিমাংশঃ "
+
+#: metaboxes.php:144
+msgid ""
+"Input Latitude &amp; Longitude Separated By Comma. Or Change The View, "
+"Latitude and Longitude will be automatically calculated. eg. lat,lon."
+msgstr ""
+"কমা সেপারেটেড ফরমেটে  অক্ষাংশ ও দ্রাঘিমাংশ দিতে হবে অথবা নিচের মানচিত্র থেকে "
+"আপনার অবস্থান বেছেনিন। অক্ষাংশ ও দ্রাঘিমাংশ স্বয়ংক্রিয় ভাবে নেওয়া হবে।  "
+"যেমনঃlat,lon"
+
+#: metaboxes.php:148
+msgid "Street View Zoom Level:"
+msgstr "স্ট্রিট ভিউ জুম্ লেভেলঃ"
+
+#: metaboxes.php:153
+#, php-format
+msgid ""
+"Input into the text box above  or change from the map preview.<br><em>"
+"Allowed minimum value %d &amp; maximum value %d by google street view.</em>"
+msgstr ""
+"উপরের বক্স অথবা নিচের মানচিত্র থেকে জুম্‌ পরিবর্তন করেন।<br><em>গুগল "
+"ম্যাপস্‌ থেকে অনুমোদিত সর্বনিম্ন মান %d এবং সর্বোচ্চ মান %d।</em>"
+
+#: metaboxes.php:157
+msgid "Choose Your Desigre Angle"
+msgstr "আপনার সুবিধা জনক অ্যাঙ্গেল নির্বাচন করুন"
+
+#: metaboxes.php:164
+msgid "Google Maps Marker Icon"
+msgstr "গুগল মানচিত্র মার্কারের আইকন"
+
+#: metaboxes.php:167
+msgid "Marker Icon URL"
+msgstr "মার্কার আইকন এর URL"
+
+#: metaboxes.php:168
+msgid "Google Maps Custom Marker Icon"
+msgstr "গুগল মানচিত্র মার্কারের জন্যে পরিবর্তিত আইকন"
+
+#: metaboxes.php:170
+msgid "Icon Url. Recommended 64x64PX PNG Image"
+msgstr "আইকন URL, ৬৪x৬৪ পিক্সেল আকারের .png আইকন হলে ভাল হয়।"
+
+#: metaboxes.php:176
+msgid "Maps Style"
+msgstr "মানচিত্রের স্টাইল"
+
+#: metaboxes.php:186
+msgid "Custom Maps Style for this map."
+msgstr "এই মানচিত্র জন্য কাস্টম স্টাইল।"
+
+#: metaboxes.php:187
+msgid ""
+"Get Colorful Maps From <a href=\"https://snazzymaps.com/\">https:"
+"//snazzymaps.com/</a><br>Or create a new style with <a href=\"http://gmaps-"
+"samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google "
+"Maps API Styled Map Wizard</a><br>Copy and paste the <strong><em>JSON "
+"Data</em></strong> into above  textarea."
+msgstr ""
+"আপনার  ম্যাপের জন্যে <a href=\"https://snazzymaps.com/\">snazzymaps.com</a> "
+"থেকে রঙিন স্ট্যাইল খুজে বের করেন; আথবা <a href=\"http://gmaps-samples-v3."
+"googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google Maps API "
+"Styled Map Wizard</a> থেকে পছন্দ মত স্ট্যাইল বানিয়েনেন।<br>পছন্দ মত "
+"স্ট্যাইলটির <strong><em>JSON</em></strong> কোড উপরের <code>textarea</code>তে "
+"কপি-পেস্ট করে সেভ করেন।"
+
+#: metaboxes.php:193
+msgid "Custom CSS"
+msgstr "কাস্টম CSS"
+
+#: metaboxes.php:202
+msgid "Custom CSS for this map."
+msgstr "এই মানচিত্র জন্য কাস্টম CSS."
+
+#: metaboxes.php:203
+msgid "Available CSS Class Selectors are:"
+msgstr "উপলভ্য সিএসএস ক্লাস সিলেক্টর আছে:"
+
+#: sp_google_maps.php:53
+msgid "Support"
+msgstr "সহায়তা"
+
+#: sp_google_maps.php:54
+msgid "Facebook"
+msgstr "ফেসবুক"
+
+#: sp_google_maps.php:55
+msgid "Google Plus"
+msgstr "গুগল প্লাস"
+
+#: sp_google_maps.php:66
+msgid "View Maps"
+msgstr "মানচিত্র দেখুন"
+
+#: sp_google_maps.php:67
+msgid "Settings"
+msgstr "সেটিংস"
+
+#: sp_google_maps.php:78
 msgid "Parent Item:"
 msgstr "মূল আইটেমটিঃ"
 
-#: sp_google_maps.php:59
+#: sp_google_maps.php:79
 msgid "All Maps"
 msgstr "সকল  মানচিত্র"
 
-#: sp_google_maps.php:60
+#: sp_google_maps.php:80
 msgid "Add New Map"
 msgstr "নতুন মানচিত্র তৈরি করুন"
 
-#: sp_google_maps.php:61
+#: sp_google_maps.php:81
 msgid "Add New"
 msgstr "নতুন তৈরি করুন"
 
-#: sp_google_maps.php:62
+#: sp_google_maps.php:82
 msgid "New Map"
 msgstr "নতুন মানচিত্র"
 
-#: sp_google_maps.php:63
+#: sp_google_maps.php:83
 msgid "Edit Map"
 msgstr "মানচিত্রটি পরিবর্তন করুন"
 
-#: sp_google_maps.php:64
+#: sp_google_maps.php:84
 msgid "Update Map"
 msgstr "মানচিত্র হালনাগাদ করুন"
 
-#: sp_google_maps.php:65
+#: sp_google_maps.php:85
 msgid "View Map"
 msgstr "মানচিত্র দেখুন"
 
-#: sp_google_maps.php:66
+#: sp_google_maps.php:86
 msgid "Search Map"
 msgstr "মানচিত্র অনুসন্ধান করুন"
 
-#: sp_google_maps.php:67
+#: sp_google_maps.php:87
 msgid "Not found"
 msgstr "খুঁজে পাওয়া যাচ্ছে না"
 
-#: sp_google_maps.php:68
+#: sp_google_maps.php:88
 msgid "Not found in Trash"
 msgstr "ট্র্যাশ মধ্যে পাওয়া যায়নি"
 
-#: sp_google_maps.php:72
-msgid "A simple plugin that embed Google Maps and Google Maps Street View. With Geo Routing Functionality."
-msgstr "এই প্লাগইনটি Geo Routing কার্যকারিতা সহ গুগল ম্যাপ ও গুগল স্ট্রিট ভিউ embed করতে পারে।"
+#: sp_google_maps.php:92
+msgid ""
+"A simple plugin that embed Google Maps and Google Maps Street View. With Geo "
+"Routing Functionality."
+msgstr ""
+"এই প্লাগইনটি Geo Routing কার্যকারিতা সহ গুগল ম্যাপ ও গুগল স্ট্রিট ভিউ embed "
+"করতে পারে।"
 
-#: sp_google_maps.php:175
-msgid "Map Not Found"
-msgstr "মানচিত্র পাওয়া যায়নি"
-
-#: sp_google_maps.php:238
+#: sp_google_maps.php:257
 msgid "Type Your Location"
 msgstr "আপনার অবস্থান লিখুন"
 
-#: sp_google_maps.php:241
+#: sp_google_maps.php:259
 msgid "Your Browser Doesn't Support Location Service."
 msgstr "আপনার ব্রাউজার লোকেশন সার্ভিস সমর্থন করে না।"
 
-#: sp_google_maps.php:242
+#: sp_google_maps.php:260
 msgid "Request Timeout. Please Reload Your Browser."
 msgstr "অনুরোধের সময়সীমা শেষ। ব্রাউজার রিলোড করুন।"
 
-#: sp_google_maps.php:243
+#: sp_google_maps.php:261
 msgid ""
 "Your Position is Unavailable.\n"
 "Please Activate Your GPS And Location Services And Reload The Page."
@@ -341,7 +376,7 @@ msgstr ""
 "আপনার অবস্থান পাওয়া যায়নি।\n"
 "আপনার জিপিএস ও অবস্থান পরিষেবা সক্রিয় করুন এবং পৃষ্ঠাটি পুনরায় লোড করুন।"
 
-#: sp_google_maps.php:244
+#: sp_google_maps.php:262
 msgid ""
 "Your Location Settings Is Blocked.\n"
 "Please Change Your Location Sharing Settings And Reload The Page."
@@ -349,7 +384,7 @@ msgstr ""
 "আপনার অবস্থান সেটিংস বন্ধ করা।\n"
 "আপনার অবস্থান শেয়ারিং সেটিংস পরিবর্তন করুন এবং পৃষ্ঠাটি পুনরায় লোড করুন।"
 
-#: sp_google_maps.php:245
+#: sp_google_maps.php:263
 msgid ""
 "An Unknown Error Occurred.\n"
 "Please Try Again After Sometime."
@@ -357,93 +392,48 @@ msgstr ""
 "একটি অজানা ত্রুটি ঘটেছে।\n"
 "কিছুক্ষণ পর আবার চেষ্টা করুন।"
 
-#: sp_google_maps.php:248
+#: sp_google_maps.php:265
 msgid "No route could be found between the origin and destination."
 msgstr "শুরু এবং গন্তব্য এর মধ্যে কোন রাস্তা পাওয়া যায়নি।"
 
-#: sp_google_maps.php:249
+#: sp_google_maps.php:266
 msgid "This webpage is not allowed to use the directions service."
 msgstr "এই ওয়েব পেজটির রাস্তা নির্দেশক পরিষেবা ব্যবহার করার অনুমতি নাই।"
 
-#: sp_google_maps.php:250
-msgid "The webpage has gone over the requests limit in too short a period of time."
+#: sp_google_maps.php:267
+msgid ""
+"The webpage has gone over the requests limit in too short a period of time."
 msgstr "এই ওয়েব পেজটির রিকুয়েস্ট লিমিত শেষ হয়ে গেছে।"
 
-#: sp_google_maps.php:251
-msgid "At least one of the origin, destination, or waypoints could not be geocoded."
+#: sp_google_maps.php:268
+msgid ""
+"At least one of the origin, destination, or waypoints could not be geocoded."
 msgstr "উৎপত্তি, গন্তব্য, বা waypoints এর যেকোন একটির geocoded করা যায়নি।"
 
-#: sp_google_maps.php:252
+#: sp_google_maps.php:269
 msgid "The Directions Request provided was invalid."
 msgstr "প্রদত্ত Directions Request অকার্যকার ছিল।"
 
-#: sp_google_maps.php:253
+#: sp_google_maps.php:270
 msgid "There was an unknown error in your request. Request status is:"
 msgstr "আপনার অনুরোধে একটি অজানা ত্রুটি হয়েছে। অনুরোধ অবস্থা:"
 
-#: sp_google_maps.php:276
+#: sp_google_maps.php:293
 msgid "Show Car Route From Your Location"
 msgstr "আপনার অবস্থান থেকে গাড়ির রাস্তা দেখুন"
 
-#: sp_google_maps.php:277
+#: sp_google_maps.php:294
 msgid "Show Walking Route"
 msgstr "হাঁটা রাস্তা দেখুন"
 
-#: sp_google_maps.php:278
+#: sp_google_maps.php:295
 msgid "Show Public Transport Route"
 msgstr "পাবলিক পরিবহনের রাস্তা দেখুন"
 
-#. Plugin URI of the plugin/theme
-msgid "http://samepagenet.com"
-msgstr ""
-
 #. Description of the plugin/theme
-msgid "A simple plugin that embed Google Maps and Google Maps Street View. With Google Maps Routeing Functionality."
-msgstr "একটি ছোট্ট গুগল ম্যাপস্‌ প্লাগইন।  এটি  গুগল দিকনির্দেশ কার্যকারিতা সহ গুগল ম্যাপ ও গুগল স্ট্রিট ভিউ দেখাতে পারে।"
-
-#. Author of the plugin/theme
-msgid "mhamudul_hk"
+msgid ""
+"A simple plugin that embed Google Maps and Google Maps Street View. With "
+"Google Maps Routeing Functionality."
 msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://samepagenet.com/"
-msgstr ""
-
-#~ msgid ""
-#~ "Input Latitude &amp; Longitude Separated By Comma. Or Choose Your Location From from the map below. eg. lat,lan."
-#~ msgstr ""
-#~ "কমা সেপারেটেড ফরমেটে  অক্ষাংশ ও দ্রাঘিমাংশ দিতে হবে অথবা নিচের মানচিত্র থেকে আপনার অবস্থান বেছেনিন। অক্ষাংশ ও দ্রাঘিমাংশ "
-#~ "স্বয়ংক্রিয় ভাবে নেওয়া হবে।  যেমনঃlat,lon"
-
-#~ msgid ""
-#~ "Input Latitude &amp; Longitude Separated By Comma. Or Choose Your Location From from the map bellow. eg. lat,lan."
-#~ msgstr "কমা সেপারেটেড ফরমেটে  অক্ষাংশ ও দ্রাঘিমাংশ দিতে হবে অথবা নিচের মানচিত্র থেকে আপনার অবস্থান"
-
-#~ msgid ""
-#~ "Input Latitude &amp; Longitude Saperated By Comma. Or Choose Your Location From from the map bellow. eg. lat,lan."
-#~ msgstr " অক্ষাংশ ও দ্রাঘিমাংশ কমা দ্বারা বিভক্ত করে ইনপুট ফিল্ডে লিখুন, যেমনঃ  অক্ষাংশ ,দ্রাঘিমাংশ"
-
-#~ msgid ""
-#~ "Saperated By Comma. Set Heading &amp; Pitch, eg. heading,pitch. Or use the Street Map Preview to set Point-of-View."
-#~ msgstr ""
-#~ "কমা দ্বারা বিভক্ত করে স্ট্রিট ভিউ এর অ্যাঙ্গেলের Heading এবং Pitch লিখুন, অথবা অ্যাঙ্গেল স্ট্রিট ভিউ মানচিত্র থেকে সেট করুন। "
-#~ "যেমনঃ heading,pitch"
-
-#~ msgid ""
-#~ "Input into the text box avobe or change from the map preview.<br><em>Allowed minimum value %d &amp; maximum value %d "
-#~ "by google maps.</em>"
-#~ msgstr "জুম মানচিত্র আথবা উপরের বক্স থেকে পরিবর্তন করেন।<br><em>গুগল ম্যাপস্‌ থেকে </em>"
-
-#~ msgid "A simple plugin that embed Google Maps and Google Maps Street View. With Geo Routeing Functionality."
-#~ msgstr "এই প্লাগইনটি Geo Routing কার্যকারিতা সহ গুগল ম্যাপ ও গুগল স্ট্রিট ভিউ embed করতে পারে।"
-
-#~ msgid ""
-#~ "Google Maps Style API.<br>Get Settings For Colorful Google Maps From <a href=\"https://snazzymaps.com/\">https://"
-#~ "snazzymaps.com/</a><br>Copy and paste the <em>JavaScript Style Array</em> Here.<br>Or create a new style with  <a "
-#~ "href=\"http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google Maps API Styled Map "
-#~ "Wizard</a> and copy-paste the Json data here."
-#~ msgstr ""
-#~ "গুগল মাপ্‌স এর স্টাইল API\n"
-#~ "<a href=\"https://snazzymaps.com/\">https://snazzymaps.com/</a> থেকে স্টাইল এর সেটিং সংগ্রহ করুন,  আথবা <a href="
-#~ "\"http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html\">Google Maps Style API Wizard</a> "
-#~ "থেকে আপনার ইচ্ছা মত তৈরি করুন এবং স্টাইল সেটিং এর JSON ডাটা এখানে কপি-পেস্ট করুন।"
+"একটি ছোট্ট গুগল ম্যাপস্‌ প্লাগইন।  এটি  গুগল দিকনির্দেশ কার্যকারিতা সহ গুগল "
+"ম্যাপ ও গুগল স্ট্রিট ভিউ দেখাতে পারে।"

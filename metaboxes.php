@@ -1,11 +1,22 @@
 <?php
 /**
  * SP Google Maps Metaboxes for custom post type
+ * @package     SP Google Maps
+ * @author      Kudratullah
+ * @version     1.0.1
+ * @since       SP Google Maps 1.1.5
+ * @copyright   2017 SamePage Inc.
+ * @license     GPL-2.0+
+ */
+/**
+ * 
  * @since SP Google Maps 1.1.5
  */
-
+if ( !function_exists( 'add_action' ) ) {
+	echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
+	exit;
+}
 // meta box for maps
-
 add_action( 'add_meta_boxes', 'sp_google_maps_shortcode_meta_box_add' );
 
 function sp_google_maps_shortcode_meta_box_add(){
@@ -206,7 +217,6 @@ function sp_google_maps_meta_box_save( $post_id ){
 	if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'sp_google_maps_nonce' ) ) return;
 	// if our current user can't edit this post, bail
 	if( !current_user_can( 'edit_post' ) ) return;
-	
 	$allowed = array();
 	if( isset( $_POST['maps-title'] ) )
 		update_post_meta($post_id, 'maps-title', wp_kses( $_POST['maps-title'], $allowed ) );
@@ -214,23 +224,19 @@ function sp_google_maps_meta_box_save( $post_id ){
 		update_post_meta($post_id, 'maps-mwscroll', wp_kses( $_POST['maps-mwscroll'], $allowed ) );
 	if( isset( $_POST['maps-latlng'] ) )
 		update_post_meta( $post_id, 'maps-latlng', wp_kses( $_POST['maps-latlng'], $allowed ) );
-	
 	if( isset( $_POST['maps-pov'] ) )
 		update_post_meta( $post_id, 'maps-pov', wp_kses( $_POST['maps-pov'], $allowed ) );
-	
 	if( isset( $_POST['maps-style'] ) )
 		update_post_meta( $post_id, 'maps-style', wp_kses( $_POST['maps-style'], $allowed ) );
-	
 	if( isset( $_POST['maps-icon'] ) )
 		update_post_meta( $post_id, 'maps-icon', wp_kses( $_POST['maps-icon'], $allowed ) );
 	if( isset( $_POST['maps-css'] ) )
 		update_post_meta( $post_id, 'maps-css', wp_kses( $_POST['maps-css'], $allowed ) );
-	
 	if( isset($_POST['maps-zoom']) )
 		update_post_meta( $post_id, 'maps-zoom', wp_kses( $_POST['maps-zoom'], $allowed ) );
 	if( isset($_POST['maps-SV-latlng']) )
 		update_post_meta( $post_id, 'maps-SV-latlng', wp_kses( $_POST['maps-SV-latlng'], $allowed ) );
 	if( isset($_POST['maps-SV-zoom']) )
 		update_post_meta( $post_id, 'maps-SV-zoom', wp_kses( $_POST['maps-SV-zoom'], $allowed ) );
-	
 }
+// End of file metaboxes.php
