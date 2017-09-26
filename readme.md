@@ -80,3 +80,5 @@ There are no FAQ yet. Please check the Description
   - Allow mouse scroll zoom in Full Screen Mode if scroll is disabled.
 + 1.1.7
   - Language File Update
++ 1.1.8
+  - Update Text Domain Path
